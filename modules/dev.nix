@@ -7,7 +7,8 @@
 
   environment.systemPackages = with pkgs; [
     ansible
-    neovim
+    neovim-nightly
+    vscode
     git
     gdb
     perl

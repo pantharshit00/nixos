@@ -3,11 +3,11 @@
 rec {
   xdg.configFile = {
     "pictures".source = ./home/pictures;
-    "doom.d".source = ./home/doom.d;
     "wofi/style.css".source = ./home/wofi/style.css;
     "picom/config".source = ./home/picom/config;
     "dunst/dunstrc".source = ./home/dunst/dunstrc;
     "i3/config".source = ./home/i3/config;
+    "nvim".source = ./home/nvim;
     "i3/i3exit".source = ./home/i3/i3exit;
     "i3/i3subscribe".source = ./home/i3/i3subscribe;
     "i3lock/cat.png".source = ./home/i3lock/cat.png;
@@ -23,23 +23,15 @@ rec {
     "scripts/dist.js".source = ./home/scripts/dist.js;
   };
 
-  services = {
-    emacs = {
-      enable = true;
-      package = config.programs.emacs.package;
-    };
-  };
 
   programs = {
-    doom-emacs = {
-      enable = true;
-      doomPrivateDir = ./home/doom.d;
-      emacsPackage = pkgs.emacsPgtk;
-    };
     direnv = {
       enable = true;
       enableFishIntegration = true;
       enableNixDirenvIntegration = true;
+    };
+    neovim = {
+      vimAlias = true;
     };
     git = {
       enable = true;

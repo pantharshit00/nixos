@@ -58,7 +58,6 @@
    hostId = "6A449A82";
    hostName = "ylaptop";
   };
-  nix.maxJobs = 8;
   powerManagement.cpuFreqGovernor = "performance";
 
   fileSystems."/" =

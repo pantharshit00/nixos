@@ -7,12 +7,11 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-master.url = "nixpkgs/master";
     rust-overlay.url = "github:oxalica/rust-overlay";
+    neovim-nightly-overlay.url  = "github:nix-community/neovim-nightly-overlay";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    doom-emacs.url = "github:vlaci/nix-doom-emacs";
-    emacs.url = "github:nix-community/emacs-overlay";
     nixos-hardware.url = "github:nixos/nixos-hardware";
   };
 
@@ -21,7 +20,6 @@
     , nixpkgs
     , nixpkgs-master
     , home-manager
-    , doom-emacs
     , ...
   }: let
     inherit (lib.my) mapModules mapModulesRec mapHosts;
@@ -47,9 +45,6 @@
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.harshit = lib.mkMerge [
-          {
-            imports = [ doom-emacs.hmModule ];
-          }
           ./home.nix
         ];
       }
@@ -76,7 +71,7 @@
             nvidia_x11 = self.linuxPackages_5_11.nvidia_x11;
           })
           inputs.rust-overlay.overlay
-          inputs.emacs.overlay
+          inputs.neovim-nightly-overlay.overlay
         ];
       };
     };

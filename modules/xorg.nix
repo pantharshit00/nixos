@@ -18,7 +18,6 @@
       enable = true;
       package = pkgs.i3-gaps;
       extraPackages = with pkgs; [
-        firefox
         libinput
         rofi
         i3status

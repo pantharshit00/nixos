@@ -20,8 +20,9 @@
     xserver = {
       libinput = {
         enable = true;
-	tapping = true;
-	naturalScrolling = false;
+        touchpad = {
+          naturalScrolling = true;
+        };
       };
     };
   };

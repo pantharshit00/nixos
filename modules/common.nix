@@ -141,10 +141,16 @@
   environment.systemPackages = with pkgs; [
     alacritty
     wget
+    brave
     brightnessctl
+    coreutils
+    utillinux
+    usbutils
+    pciutils
     polkit_gnome
     gtk-engine-murrine
     gtk_engines
+    libgnome-keyring
     gsettings-desktop-schemas
     lxappearance
     zsh
