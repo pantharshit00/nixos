@@ -8,5 +8,5 @@
     };
   };
 
-  users.extraGroups.vboxusers.members = [ "pimeys" ];
+  users.extraGroups.vboxusers.members = [ "harshit" ];
 }
