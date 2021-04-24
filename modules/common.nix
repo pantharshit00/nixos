@@ -138,6 +138,14 @@
     };
   };
 
+
+  environment = {
+    interactiveShellInit = ''
+    set PATH ~/.cargo/bin ~/.local/bin $PATH
+    set EDITOR ${pkgs.neovim}/bin/nvim
+    '';
+  };
+
   environment.systemPackages = with pkgs; [
     alacritty
     wget
@@ -158,7 +166,6 @@
     htop
     thefuck
     sysstat
-    element-desktop
     tree
     tmux
     zip

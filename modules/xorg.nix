@@ -23,6 +23,7 @@
         i3status
         i3lock
         i3blocks-gaps
+        i3status-rust
         feh
         dunst
         scrot

@@ -8,6 +8,7 @@ rec {
     "dunst/dunstrc".source = ./home/dunst/dunstrc;
     "i3/config".source = ./home/i3/config;
     "nvim".source = ./home/nvim;
+    "i3/i3status.toml".source = ./home/i3/i3status.toml;
     "i3/i3exit".source = ./home/i3/i3exit;
     "i3/i3subscribe".source = ./home/i3/i3subscribe;
     "i3lock/cat.png".source = ./home/i3lock/cat.png;
@@ -49,6 +50,9 @@ rec {
     };
     zsh = {
       enable = true;
+      shellAliases = {
+        vim = "nvim";
+      };
     };
     starship = {
       enable = true;
