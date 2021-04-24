@@ -80,62 +80,17 @@
         ];
       };
     };
-
-    wayland = { pkgs, config, ... }: {
-      config = {
-        nix = {
-          # add binary caches
-          binaryCachePublicKeys = [
-            "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-          ];
-          binaryCaches = [
-            "https://nixpkgs-wayland.cachix.org"
-          ];
-        };
-
-        nixpkgs.overlays = [
-          inputs.nixpkgs-wayland.overlay
-        ];
-      };
-    };
   in {
     packages."${system}" =
       mapModules ./packages (p: pkgs.callPackage p {});
 
     nixosConfigurations = {
-      # ThinkPad T25 laptop runs this branch.
-      muspus = nixpkgs.lib.nixosSystem {
-        system = system;
-        modules = [
-          ./hosts/muspus.nix
-          common
-          #wayland
-        ] ++ home;
-        specialArgs = {
-          inherit inputs;
-          inherit home-manager;
-        };
-      };
 
-      # ThinkPad X230 laptop runs this branch.
-      meowmeow = nixpkgs.lib.nixosSystem {
+      # Lenovo Y540
+      ylaptop = nixpkgs.lib.nixosSystem {
         system = system;
         modules = [
-          ./hosts/meowmeow.nix
-          common
-          #wayland
-        ] ++ home;
-        specialArgs = {
-          inherit inputs;
-          inherit home-manager;
-        };
-      };
-
-      # The big workstation (AMD/NVIDIA) uses this.
-      naunau = nixpkgs.lib.nixosSystem {
-        system = system;
-        modules = [
-          ./hosts/naunau.nix
+          ./hosts/ylaptop.nix
           common
         ] ++ home;
         specialArgs = {
