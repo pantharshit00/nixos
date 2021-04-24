@@ -1,0 +1,322 @@
+# vim:filetype=i3
+# i3 config file (v4)
+set $mod Mod4
+set $editor "alacritty"
+
+set_from_resource $darkred     color1  #000000
+set_from_resource $red         color9  #000000
+set_from_resource $darkgreen   color2  #000000
+set_from_resource $green       color10 #000000
+set_from_resource $darkyellow  color3  #000000
+set_from_resource $yellow      color11 #000000
+set_from_resource $darkblue    color4  #000000
+set_from_resource $blue        color12 #000000
+set_from_resource $darkmagenta color5  #000000
+set_from_resource $magenta     color13 #000000
+set_from_resource $darkcyan    color6  #000000
+set_from_resource $cyan        color14 #000000
+set_from_resource $darkwhite   color7  #000000
+set_from_resource $white       color15 #000000
+# Use custom colors for black
+set $black       #073642
+set $yellow      #af8700
+set $darkblack   #002b36
+set $transparent #00000000
+
+set $height 34
+
+set $ws1  "1: 🍑 "
+set $ws2  "2: 🍌 "
+set $ws3  "3: 🍒 "
+set $ws4  "4: 🍓 "
+set $ws5  "5: 🍆 "
+set $ws6  "6: 🍄 "
+set $ws7  "7: 🍀 "
+set $ws8  "8: 🍇 "
+set $ws9  "9: 🌵 "
+set $ws10 "10: 🌟 "
+
+set $default_gaps_inner 0
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+set $laptop eDP-1
+set $monitor DP-1
+
+workspace $ws1 output $laptop
+workspace $ws2 output $laptop
+workspace $ws3 output $laptop
+workspace $ws4 output $laptop
+workspace $ws5 output $laptop
+workspace $ws6 output $monitor
+workspace $ws7 output $monitor
+workspace $ws8 output $monitor
+workspace $ws9 output $monitor
+workspace $ws10 output $monitor
+
+workspace_auto_back_and_forth yes
+force_display_urgency_hint 0 ms
+focus_on_window_activation urgent
+
+floating_minimum_size -1 x -1
+floating_maximum_size -1 x -1
+
+font pango:Hack, FontAwesome 12
+
+#                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+client.focused          $black      $yellow     $black      $darkblack  $darkblack
+client.unfocused        $black      $black      $white      $darkblack  $darkblack
+client.focused_inactive $black      $black      $white      $darkblack  $darkblack
+client.urgent           $darkred    $darkred    $black      $darkred    $darkred
+client.background       $black
+
+floating_modifier $mod
+bindsym $mod+Return exec --no-startup-id exec $editor
+bindsym $mod+z exec --no-startup-id "emacsclient -nc"
+
+bindsym $mod+q kill
+
+bindsym $mod+d exec --no-startup-id rofi -show run
+
+bindsym $mod+l focus left
+bindsym $mod+h focus right
+bindsym $mod+k focus up
+bindsym $mod+j focus down
+
+bindsym $mod+Shift+Left move left 35px
+bindsym $mod+Shift+Down move down 35px
+bindsym $mod+Shift+Up move up 35px
+bindsym $mod+Shift+Right move right 35px
+
+bindsym $mod+Shift+h split h
+bindsym $mod+v split v
+bindsym $mod+b exec --no-startup-id "speedcrunch"
+
+# Until I figure out a better way to use this key
+bindsym Hyper_L fullscreen
+bindsym $mod+f fullscreen
+bindsym $mod+g fullscreen global
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Tab workspace back_and_forth
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# put YouTube into fullscreen and execute this for media mode
+bindsym $mod+y fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 54
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/scripts/volume_control.py down 5
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/scripts/volume_control.py up 5
+bindsym XF86AudioMute exec --no-startup-id $HOME/scripts/volume_control.py toggle
+bindsym $mod+Shift+v exec --no-startup-id "killall pavucontrol; $HOME/scripts/fullscreen_wrap.sh pavucontrol -t 3"
+bindsym $mod+Shift+b exec --no-startup-id "pulseaudio -k"
+bindsym $mod+Print exec --no-startup-id "sleep 0.2 ; scrot -s ~/Downloads/screenshot-$(date +%Y-%m-%d_%H-%m-%s).png"
+
+bindsym XF86MonBrightnessDown exec --no-startup-id ${HOME}/scripts/backlight.sh -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id ${HOME}/scripts/backlight.sh -inc 10
+
+bindsym $mod+Shift+w exec --no-startup-id $editor --name "__nmtui" -e "nmtui-connect"
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+bindsym $mod+n exec --no-startup-id thunar
+
+set $mode_resize resize
+bindsym $mod+r mode "$mode_resize"
+mode "$mode_resize" {
+    bindsym Left resize shrink width 10 px or 1 ppt
+    bindsym Down resize grow height 10 px or 1 ppt
+    bindsym Up resize shrink height 10 px or 1 ppt
+    bindsym Right resize grow width 10 px or 1 ppt
+
+    bindsym Shift+Left resize shrink width 20 px or 5 ppt
+    bindsym Shift+Down resize grow height 20 px or 5 ppt
+    bindsym Shift+Up resize shrink height 20 px or 5 ppt
+    bindsym Shift+Right resize grow width 20 px or 5 ppt
+
+    bindsym s mode "default", exec --no-startup-id $HOME/scripts/slopsize.sh
+
+    bindsym 1 mode "default", resize set 1000 600
+    bindsym 2 mode "default", resize set 1500 600
+    bindsym 3 mode "default", resize set 1200 1000
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $mode_power power
+bindsym Mod1+Control+l mode "$mode_power"
+mode "$mode_power" {
+    bindsym l mode "default", exec --no-startup-id $HOME/.config/i3/i3exit lock
+    bindsym e mode "default", exec --no-startup-id $HOME/.config/i3/i3exit logout
+    bindsym s mode "default", exec --no-startup-id $HOME/.config/i3/i3exit suspend
+    bindsym h mode "default", exec --no-startup-id $HOME/.config/i3/i3exit hibernate
+    bindsym r mode "default", exec --no-startup-id $HOME/.config/i3/i3exit reboot
+    bindsym p mode "default", exec --no-startup-id $HOME/.config/i3/i3exit shutdown
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $mode_color color
+bindsym $mod+Shift+o mode "$mode_color"
+mode "$mode_color" {
+    bindsym d mode "default", exec --no-startup-id $HOME/.local/bin/daytime
+    bindsym n mode "default", exec --no-startup-id $HOME/.local/bin/nighttime
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $mode_gaps gaps
+set $mode_gaps_outer outer gaps
+set $mode_gaps_inner inner gaps
+bindsym $mod+Shift+g mode "$mode_gaps"
+mode "$mode_gaps" {
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+
+    bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner current set 0" && i3-msg "gaps outer current set 0"
+    bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner current set $default_gaps_inner" && i3-msg "gaps outer current set $default_gaps_outer"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     mode "default", gaps inner current set 0
+    bindsym d     mode "default", gaps inner current set $default_gaps_inner
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     mode "default", gaps inner all set 0
+    bindsym Shift+d     mode "default", gaps inner all set $default_gaps_inner
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     mode "default", gaps outer current set 0
+    bindsym d     mode "default", gaps outer current set $default_gaps_outer
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     mode "default", gaps outer all set 0
+    bindsym Shift+d     mode "default", gaps outer all set $default_gaps_outer
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+new_window none
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down $height px
+for_window [class="(?i)qemu-system"] floating enable
+for_window [class="(?i)VirtualBox" title="(?i)Manager"] floating enable
+for_window [class="(?i)VirtualBox"] floating enable
+for_window [class="(?i)KeePassXC"] move scratchpad
+for_window [class="(?i)Nautilus"] floating enable
+for_window [class="(?i)SpeedCrunch"] floating enable
+for_window [class="(?i)blueman"] floating enable
+for_window [class="(?i)pinentry"] floating enable
+
+for_window [instance="__scratchpad"] floating enable
+for_window [instance="__nmtui"] floating enable
+for_window [class="(?i)recordmydesktop"] floating enable
+
+for_window [class="(?i)pavucontrol"] floating enable, move position mouse
+for_window [class="(?i)pavucontrol" instance="pavucontrol-bar"] move down $height px
+
+assign [class="(?i)firefox"] $ws1
+assign [class="(?i)Discord"] $ws3
+assign [class="(?i)slack"] $ws3
+assign [class="(?i)Signal"] $ws4
+assign [class="(?i)Telegram"] $ws4
+assign [class="(?i)Element"] $ws4
+
+bar {
+    status_command i3blocks
+    i3bar_command i3bar -t
+    position top
+    font pango:Hack, FontAwesome 11
+    strip_workspace_numbers no
+    separator_symbol "■"
+    bindsym button4 nop
+    bindsym button5 nop
+    tray_output DP-1
+    tray_output HDMI-1
+    tray_padding 0
+    height $height
+    colors {
+        statusline         $white
+        background         $darkblack
+        separator          $transparent
+
+#                          BORDER       BACKGROUND   TEXT
+        focused_workspace  #d33682      #d33682      $darkblack
+        inactive_workspace $darkblack   $darkblack   $white
+        active_workspace   #6c71c4      #6c71c4      $darkblack
+        urgent_workspace   $darkred     $darkred     $transparent
+        binding_mode       $darkred     $darkred     $transparent
+    }
+}
+
+# AUTOSTART
+exec_always --no-startup-id feh --bg-fill $HOME/.config/pictures/TNEJezP.jpg
+exec --no-startup-id picom -b --config $HOME/.config/picom/config
+exec --no-startup-id dunst &
+exec --no-startup-id element-desktop &
+exec --no-startup-id slack &
+exec --no-startup-id xrdb -load ~/.Xresources
+
+exec --no-startup-id xset r rate 200 20
+
+exec --no-startup-id systemctl --user import-environment DISPLAY
+exec --no-startup-id systemctl --user restart emacs.service &
+exec --no-startup-id setxkbmap -layout us -option caps:ctrl_modifier,compose:ralt
+exec --no-startup-id xinput set-prop 13 'Device Enabled' 1
