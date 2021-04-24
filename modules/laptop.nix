@@ -17,11 +17,19 @@
         DEVICES_TO_ENABLE_ON_STARTUP = "wifi";
       };
     };
+    xserver = {
+      libinput = {
+        enable = true;
+	tapping = true;
+	naturalScrolling = false;
+      };
+    };
   };
+
 
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "shedutil";
+    # cpuFreqGovernor = "shedutil";
   };
 
   networking = {

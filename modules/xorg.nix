@@ -36,10 +36,6 @@
         xorg.xinit
         xorg.libxcb
       ];
-      extraSessionCommands = ''
-        export HASS_SERVER="http://hass.local:8123";
-        source /etc/nixos/secret/secret;
-      '';
     };
   };
 }

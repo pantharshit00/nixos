@@ -58,11 +58,6 @@
 ;; they are implemented.
 
 (setq doom-d "/etc/nixos/home/doom.d")
-(load (concat doom-d "/emacs-prisma-mode/prisma-mode.el"))
-(require 'prisma-mode)
-
-(setq auto-mode-alist
-      (cons '("\\.prisma$" . prisma-mode) auto-mode-alist))
 
 (after! rustic
   (setq rustic-format-trigger 'on-save))
