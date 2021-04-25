@@ -1,0 +1,18 @@
+[
+  "typescript",
+  "create-react-app",
+  "esbuild",
+  "pnpm",
+  "yarn",
+  "typescript-language-server",
+  "@prisma/language-server",
+  "vscode-json-languageserver",
+  "vscode-html-languageserver-bin",
+  "graphql-language-service-cli",
+  "emmet-ls",
+  "prettier",
+  "eslint",
+  "vscode-css-languageserver-bin",
+  "prisma",
+  "bash-language-server"
+]
