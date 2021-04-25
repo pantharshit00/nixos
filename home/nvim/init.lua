@@ -11,6 +11,7 @@ require('keymaps')
 
 require('plugins/default')
 require('plugins')
+require('plugins/lsp_configs')
 require('plugins/efm-general-ls')
 require('plugins/galaxyline')
 require('plugins/telescope')

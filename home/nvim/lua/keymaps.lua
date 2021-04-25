@@ -3,6 +3,10 @@
 -- Helper Functions for remapping easily
 require("plugins/telescope")
 
+local function map(mode, lhs, rhs)
+    vim.api.nvim_set_keymap(mode, lhs, rhs, {silent = true})
+end
+
 local function noremap(mode, lhs, rhs)
   vim.api.nvim_set_keymap(mode, lhs, rhs, {noremap = true, silent = true})
 end
