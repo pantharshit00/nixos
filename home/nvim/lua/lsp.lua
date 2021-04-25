@@ -15,14 +15,14 @@ local function documentHighlight(client, bufnr)
   end
 
 end
-local lsp_config = {}
+local lsp = {}
 
-function lsp_config.common_on_attach(client, bufnr)
+function lsp.common_on_attach(client, bufnr)
   documentHighlight(client, bufnr)
 end
 
-function lsp_config.tsserver_on_attach(client, bufnr)
-  lsp_config.common_on_attach(client, bufnr)
+function lsp.tsserver_on_attach(client, bufnr)
+  lsp.common_on_attach(client, bufnr)
   client.resolved_capabilities.document_formatting = false
 end
 
@@ -30,4 +30,4 @@ end
 -- and map buffer local keybindings when the language server attaches
 -- local servers = {"pyright", "tsserver"}
 -- for _, lsp in ipairs(servers) do nvim_lsp[lsp].setup {on_attach = on_attach} end
-return lsp_config
+return lsp

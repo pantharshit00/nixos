@@ -6,10 +6,10 @@
 require('options')
 require('plugins')
 require('appearance')
+require('lsp')
 
 require('plugins/default')
-require('plugins/lsp')
-require('plugin/lsp_configs')
+require('plugins')
 require('plugins/efm-genenal-ls')
 require('plugins/galaxyline')
 require('plugins/telescope')
