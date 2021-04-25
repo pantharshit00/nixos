@@ -26,6 +26,8 @@
         i3status-rust
         feh
         dunst
+        betterlockscreen
+        flameshot
         scrot
         imagemagick
         picom

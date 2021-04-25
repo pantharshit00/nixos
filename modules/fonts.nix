@@ -8,7 +8,7 @@
       enable = true;
       defaultFonts = {
         monospace = [
-          "Inconsolata"
+          "JetBrains Mono"
         ];
       };
     };
@@ -20,6 +20,7 @@
       noto-fonts-cjk
       noto-fonts-emoji
       liberation_ttf
+      jetbrains-mono
       fira-code
       fira-code-symbols
       mplus-outline-fonts

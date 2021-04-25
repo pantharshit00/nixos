@@ -138,20 +138,13 @@
     };
   };
 
-
-  environment = {
-    interactiveShellInit = ''
-    set PATH ~/.cargo/bin ~/.local/bin $PATH
-    set EDITOR ${pkgs.neovim}/bin/nvim
-    '';
-  };
-
   environment.systemPackages = with pkgs; [
     alacritty
     wget
     brave
     brightnessctl
     coreutils
+    discord
     utillinux
     usbutils
     pciutils
@@ -188,5 +181,6 @@
     man-db
     dmidecode
     feh
+    xclip
   ];
 }

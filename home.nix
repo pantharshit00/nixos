@@ -24,23 +24,18 @@ rec {
     "scripts/dist.js".source = ./home/scripts/dist.js;
   };
 
-
   programs = {
     direnv = {
       enable = true;
       enableFishIntegration = true;
       enableNixDirenvIntegration = true;
     };
-    neovim = {
-      vimAlias = true;
-    };
+    neovim = { vimAlias = true; };
     git = {
       enable = true;
       userName = "Harshit Pant";
       userEmail = "pantharshit00+github@gmail.com";
-      extraConfig = {
-        pull.rebase = true;
-      };
+      extraConfig = { pull.rebase = true; };
       aliases = {
         co = "checkout";
         br = "branch";
@@ -50,9 +45,7 @@ rec {
     };
     zsh = {
       enable = true;
-      shellAliases = {
-        vim = "nvim";
-      };
+      shellAliases = { vim = "nvim"; };
     };
     starship = {
       enable = true;
@@ -61,59 +54,51 @@ rec {
     alacritty = {
       enable = true;
       settings = {
-        env = {
-          TERM = "xterm-256color";
-        };
-        scrolling = {
-          history = 100000;
-        };
+        env = { TERM = "xterm-256color"; };
+        scrolling = { history = 100000; };
         font = {
           normal = {
-            family = "Inconsolata";
+            family = "JetBrains Mono Nerd Font";
             style = "Regular";
           };
           bold = {
-            family = "Inconsolata";
+            family = "JetBrains Mono Nerd Font";
             style = "Bold";
           };
           italic = {
-            family = "Inconsolata";
+            family = "JetBrains Mono Nerd Font";
             style = "Italic";
           };
           bold_italic = {
-            family = "Inconsolata";
+            family = "JetBrains Mono Nerd Font";
             style = "Bold Italic";
           };
-          size = 14.0;
+          size = 16.0;
         };
         colors = {
           primary = {
-            background = "0x002635";
-            foreground = "0xe6e6dc";
+            background = "0x1b182c";
+            foreground = "0xcbe3e7";
           };
           normal = {
-            black = "0x00384d";
-            red = "0xc43061";
-            green = "0x7fc06e";
-            yellow = "0xf08e48";
-            blue = "0x1c8db2";
-            magenta = "0xc694ff";
-            cyan = "0x00cccc";
-            white = "0x77929e";
+            black = "0x100e23";
+            red = "0xff8080";
+            green = "0x95ffa4";
+            yellow = "0xffe9aa";
+            blue = "0x91ddff";
+            magenta = "0xc991e1";
+            cyan = "0xaaffe4";
+            white = "0xcbe3e7";
           };
-          bright = {
-            black = "0x517f8d";
-            red = "0xff5a67";
-            green = "0x9cf087";
-            yellow = "0xffcc1b";
-            blue = "0x7eb2dd";
-            magenta = "0xfb94ff";
-            cyan = "0x00ffff";
-            white = "0xb7cff9";
-          };
-          cursor = {
-            text = "0x002635";
-            cursor = "0xffcc1b";
+          "bright" = {
+            "black" = "0x565575";
+            "red" = "0xff5458";
+            "green" = "0x62d196";
+            "yellow" = "0xffb378";
+            "blue" = "0x65b2ff";
+            "magenta" = "0x906cff";
+            "cyan" = "0x63f2f1";
+            "white" = "0xa6b3cc";
           };
         };
       };
@@ -153,7 +138,7 @@ rec {
     "*color11" = "#fabd2f";
     "*color4" = "#458588";
     "*color12" = "#83a598";
-    "*color5"  = "#b16286";
+    "*color5" = "#b16286";
     "*color13" = "#d3869b";
     "*color6" = "#689d6a";
     "*color14" = "#8ec07c";

@@ -3,8 +3,8 @@ icons = "awesome"
 
 [[block]]
 block = "net"
-device = "enp5s0"
-format = "{ip} {speed_up} {speed_down}"
+device = "wlan0"
+format = "{speed_up} {speed_down}"
 interval = 2
 use_bits = false
 
@@ -19,11 +19,6 @@ block = "cpu"
 interval = 1
 
 [[block]]
-block = "load"
-interval = 1
-format = "{1m}"
-
-[[block]]
 block = "time"
 interval = 1
 format = "%a %d/%m %r"
@@ -33,4 +28,4 @@ block = "temperature"
 interval = 3
 collapsed = false
 format = "{average}° {max}°"
-chip = "k10temp-pci-00c3"
+chip = "coretemp-isa-0000"
