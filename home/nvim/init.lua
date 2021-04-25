@@ -6,3 +6,11 @@
 require('options')
 require('plugins')
 require('appearance')
+
+require('plugins/default')
+require('plugins/lsp')
+require('plugins/efm-genenal-ls')
+require('plugins/galaxyline')
+require('plugins/telescope')
+require('plugins/compe')
+require('plugins/nvimtree')

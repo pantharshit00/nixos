@@ -1,7 +1,6 @@
 [
   "typescript",
   "create-react-app",
-  "esbuild",
   "pnpm",
   "yarn",
   "typescript-language-server",

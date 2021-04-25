@@ -4353,24 +4353,6 @@ in
     bypassCache = true;
     reconstructLock = true;
   };
-  esbuild = nodeEnv.buildNodePackage {
-    name = "esbuild";
-    packageName = "esbuild";
-    version = "0.11.14";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/esbuild/-/esbuild-0.11.14.tgz";
-      sha512 = "ejheEPkqhq5y0LM9rG9e+3yDihPtqeeE4NZmG7VQiSGJ3CjO4HvPOHmhhttSksfSztjLAGo2+0/zSIvlqj4JOQ==";
-    };
-    buildInputs = globalBuildInputs;
-    meta = {
-      description = "An extremely fast JavaScript bundler and minifier.";
-      homepage = "https://github.com/evanw/esbuild#readme";
-      license = "MIT";
-    };
-    production = true;
-    bypassCache = true;
-    reconstructLock = true;
-  };
   pnpm = nodeEnv.buildNodePackage {
     name = "pnpm";
     packageName = "pnpm";
