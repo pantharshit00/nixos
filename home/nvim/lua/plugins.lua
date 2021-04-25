@@ -75,6 +75,7 @@ return require('packer').startup(function()
 	use 'b3nj5m1n/kommentary'
 	use 'bfredl/nvim-miniyank'
 	use 'andymass/vim-matchup' 					-- Better %
+	use 'wakatime/vim-wakatime'
 
 	use 'TimUntersberger/neogit' 				-- Git integration for Neovim
 	use 'mbbill/undotree' 							-- Undotree to undo stuff well

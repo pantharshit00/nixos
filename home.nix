@@ -11,10 +11,6 @@ rec {
     "i3/i3status.toml".source = ./home/i3/i3status.toml;
     "i3/i3exit".source = ./home/i3/i3exit;
     "i3/i3subscribe".source = ./home/i3/i3subscribe;
-    "i3lock/cat.png".source = ./home/i3lock/cat.png;
-    "i3lock/i3lock.sh".source = ./home/i3lock/i3lock.sh;
-    "i3blocks/config".source = ./home/i3blocks/config;
-    "i3blocks/i3status.conf".source = ./home/i3blocks/i3status.conf;
     "scripts/battery.sh".source = ./home/scripts/battery.sh;
     "scripts/weather.sh".source = ./home/scripts/weather.sh;
     "scripts/cpu.pl".source = ./home/scripts/cpu.pl;

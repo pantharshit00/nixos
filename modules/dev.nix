@@ -40,7 +40,8 @@ in {
       postgresql_12
       gnumake
       evcxr
-
+			openssl
+      niv
       typescript
       create-react-app
       pnpm
