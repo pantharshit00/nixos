@@ -86,12 +86,6 @@ function lsp_config.tsserver_on_attach(client, bufnr)
   client.resolved_capabilities.document_formatting = false
 end
 
--- Use a loop to conveniently both setup defined servers
--- and map buffer local keybindings when the language server attaches
--- local servers = {"pyright", "tsserver"}
--- for _, lsp in ipairs(servers) do nvim_lsp[lsp].setup {on_attach = on_attach} end
-return lsp_config
-
 -- npm install -g vscode-css-languageserver-bin
 require'lspconfig'.cssls.setup {
   on_attach = require'lsp'.common_on_attach
@@ -103,3 +97,9 @@ require'lspconfig'.bashls.setup {
   cmd = {DATA_PATH .. "/lspinstall/bash/node_modules/.bin/bash-language-server", "start"},
   on_attach = require'lsp'.common_on_attach
 }
+
+-- Use a loop to conveniently both setup defined servers
+-- and map buffer local keybindings when the language server attaches
+-- local servers = {"pyright", "tsserver"}
+-- for _, lsp in ipairs(servers) do nvim_lsp[lsp].setup {on_attach = on_attach} end
+return lsp_config
