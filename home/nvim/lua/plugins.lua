@@ -73,5 +73,6 @@ return require('packer').startup(function()
 
 	-- Tool Specific
 	use 'pantharshit00/vim-prisma'
+	use 'simrat39/rust-tools.nvim'
 	
 end)
