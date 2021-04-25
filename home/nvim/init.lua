@@ -9,6 +9,7 @@ require('appearance')
 
 require('plugins/default')
 require('plugins/lsp')
+require('plugin/lsp_configs')
 require('plugins/efm-genenal-ls')
 require('plugins/galaxyline')
 require('plugins/telescope')
