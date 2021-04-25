@@ -102,6 +102,10 @@ tnoremap('<C-\\>', '<C-\\><C-n>')
 -- Search Dot files with Telescope
 nnoremap('<leader>nvc', ':SearchVimConfig<CR>')
 
+-- ctrl+p to search files
+nnoremap('<C-p>', ':SearchFiles<CR>')
+nnoremap('<leader>lg', ':Find<CR>')
+
 -- quick fix lists
 nnoremap('<leader>qf', ':copen<CR>')
 nnoremap('<leader>qj', ':cnext<CR>')
@@ -156,3 +160,6 @@ vnoremap('>', '>gv')
 
 -- jk to return to normap mode
 imap('jk','<Esc>')
+
+-- lsptrouble
+nnoremap('<leader>xx','<cmd>LspTroubleToggle<cr>')

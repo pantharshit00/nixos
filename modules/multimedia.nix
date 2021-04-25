@@ -23,6 +23,7 @@
      ncmpcpp
      youtube-dl
      ffmpeg
+		 obs-studio
      flac
      spotify
      mpv

@@ -30,6 +30,16 @@ return require('packer').startup(function()
 	use 'onsails/lspkind-nvim' 					-- Better icons for autcomplete
 	use 'kosayoda/nvim-lightbulb'
 	use 'anott03/nvim-lspinstall'
+	use {
+		"folke/lsp-trouble.nvim",
+		config = function()
+			require("trouble").setup {
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			}
+		end
+	}
 	
 	-- Autcomplete
 	use 'hrsh7th/nvim-compe' 						-- Autocompletion
