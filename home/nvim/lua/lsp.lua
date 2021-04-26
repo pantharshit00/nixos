@@ -18,7 +18,7 @@ end
 local lsp = {}
 
 function lsp.common_on_attach(client, bufnr)
-  documentHighlight(client, bufnr)
+	documentHighlight(client, bufnr)
 end
 
 function lsp.tsserver_on_attach(client, bufnr)

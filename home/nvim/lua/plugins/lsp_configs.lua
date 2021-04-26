@@ -12,6 +12,9 @@ require'lspconfig'.tsserver.setup {
   settings = {documentFormatting = false}
 }
 
+-- lua
+require'lspconfig'.sumneko_lua.setup{ }
+
 -- npm install -g vscode-html-languageserver-bin
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -61,7 +64,7 @@ nvim_lsp.emmet_ls.setup{
 
 -- npm install -g vscode-css-languageserver-bin
 require'lspconfig'.cssls.setup {
-  on_attach = require'lsp'.common_on_attach
+ on_attach = require'lsp'.common_on_attach
 }
 
 
@@ -71,6 +74,6 @@ require'lspconfig'.bashls.setup {
   on_attach = require'lsp'.common_on_attach
 }
 
-require('rust-tools').setup{
-  
-}
+require('rust-tools').setup{ }
+
+
