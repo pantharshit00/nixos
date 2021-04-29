@@ -45,8 +45,8 @@ local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --t
 
 require"lspconfig".efm.setup {
   -- init_options = {initializationOptions},
-  init_options = {documentFormatting = true, codeAction = false},
-  filetypes = {"lua", "python", "javascriptreact", "javascript", "sh", "html", "css", "json", "yaml", "markdown"},
+  init_options = {documentFormatting = true},
+  filetypes = {"lua", "javascriptreact", "javascript", "sh", "html", "css", "json", "yaml", "markdown"},
   settings = {
       rootMarkers = {".git/"},
       languages = {
