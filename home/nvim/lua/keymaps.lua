@@ -58,7 +58,6 @@ exprinoremap('<C-d>', 'compe#scroll({ \'delta\': -4 })')
 -- Map Leader Key to <Space>
 nnoremap('<Space>', '<NOP>')
 vim.g.mapleader = ' '
-nnoremap('<leader>', ':WhichKey \'<Space>\'<CR>')
 
 ---== LSP Saga ==---
 nnoremap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')

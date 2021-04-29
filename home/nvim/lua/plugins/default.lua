@@ -45,15 +45,6 @@ vim.g.floaterm_autoclose=1
 -- Indent line
 vim.g.indent_blankline_buftype_exclude = {'terminal'}
 vim.g.indent_blankline_filetype_exclude = {'help', 'startify', 'dashboard', 'packer', 'neogitstatus'}
-vim.g.indent_blankline_char = '▏'
-vim.g.indent_blankline_use_treesitter = true
-vim.g.indent_blankline_show_trailing_blankline_indent = false
-vim.g.indent_blankline_show_current_context = true
-vim.g.indent_blankline_context_patterns = {
-    'class', 'return', 'function', 'method', '^if', '^while', 'jsx_element', '^for', '^object', '^table', 'block',
-    'arguments', 'if_statement', 'else_clause', 'jsx_element', 'jsx_self_closing_element', 'try_statement',
-    'catch_clause', 'import_statement', 'operation_type'
-}
 
 -- Kommentary
 vim.api.nvim_set_keymap("n", "<C-_>", "<Plug>kommentary_line_default", {})
@@ -61,40 +52,7 @@ vim.api.nvim_set_keymap("v", "<C-_>", "<Plug>kommentary_visual_default", {})
 
 -- lightbulb
 -- Showing defaults
-require'nvim-lightbulb'.update_lightbulb {
-  sign = {
-      enabled = true,
-      -- Priority of the gutter sign
-      priority = 10,
-      text = "💡",
-  },
-  float = {
-      enabled = false,
-      -- Text to show in the popup float
-      text = "💡",
-      -- Available keys for window options:
-      -- - height     of floating window
-      -- - width      of floating window
-      -- - wrap_at    character to wrap at for computing height
-      -- - max_width  maximal width of floating window
-      -- - max_height maximal height of floating window
-      -- - pad_left   number of columns to pad contents at left
-      -- - pad_right  number of columns to pad contents at right
-      -- - pad_top    number of lines to pad contents at top
-      -- - pad_bottom number of lines to pad contents at bottom
-      -- - offset_x   x-axis offset of the floating window
-      -- - offset_y   y-axis offset of the floating window
-      -- - anchor     corner of float to place at the cursor (NW, NE, SW, SE)
-      -- - winblend   transparency of the window (0-100)
-      win_opts = {},
-  },
-  virtual_text = {
-      enabled = false,
-      -- Text to show at virtual text
-      text = "💡",
-  }
-}
-
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
 -- LSP Kind
 -- symbols for autocomplete

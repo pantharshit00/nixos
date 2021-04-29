@@ -33,11 +33,7 @@ return require('packer').startup(function()
 	use {
 		"folke/lsp-trouble.nvim",
 		config = function()
-			require("trouble").setup {
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			}
+			require("trouble").setup {}
 		end
 	}
 	
@@ -67,12 +63,13 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip-integ'
 
 	-- General
-	use {
-  "folke/which-key.nvim",
-  config = function()
-    require("which-key").setup {}
-  end
+  use {
+	 "folke/which-key.nvim",
+		config = function()
+			require("which-key").setup {}
+		end
   }
+
 -- find and replace example
 	use 'kevinhwang91/nvim-bqf'
 	use 'airblade/vim-rooter'
