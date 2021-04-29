@@ -67,7 +67,13 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip-integ'
 
 	-- General
-	use 'liuchengxu/vim-which-key'  		-- Which Key
+	use {
+  "folke/which-key.nvim",
+  config = function()
+    require("which-key").setup {}
+  end
+  }
+-- find and replace example
 	use 'kevinhwang91/nvim-bqf'
 	use 'airblade/vim-rooter'
 	use 'voldikss/vim-floaterm'

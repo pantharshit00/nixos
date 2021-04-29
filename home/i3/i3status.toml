@@ -29,3 +29,11 @@ interval = 3
 collapsed = false
 format = "{average}° {max}°"
 chip = "coretemp-isa-0000"
+
+[[block]]
+block = "battery"
+interval = 10
+format = " {percentage}%"
+
+[[block]]
+block = "backlight"
