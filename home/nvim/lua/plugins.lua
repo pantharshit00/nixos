@@ -56,7 +56,6 @@ return require('packer').startup(function()
 	use 'nvim-treesitter/nvim-treesitter-refactor'
 	use 'nvim-treesitter/playground'
 	use 'p00f/nvim-ts-rainbow'
-	use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
 
 	-- Snippets
 	use 'hrsh7th/vim-vsnip' 						-- Snipper Integration for Neovim
