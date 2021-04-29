@@ -1,6 +1,5 @@
 --[[
-  Taken from https://github.com/yashguptaz/dotfiles/blob/master/config/nvim/lua/plugins/telescope/init.lua
-]]
+  Taken from https://github.com/yashguptaz/dotfiles/blob/master/config/nvim/lua/plugins/telescope/init.lua]]
 
 local actions = require('telescope.actions')
 -- Global remapping
@@ -44,7 +43,7 @@ require('telescope').setup {
             i = {
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
-								["<C-q>"] = actions.send_to_qflist,
+                ["<C-q>"] = actions.send_to_qflist,
                 -- To disable a keymap, put [map] = false
                 -- So, to not map "<C-n>", just put
                 -- ["<c-x>"] = false,
@@ -82,6 +81,5 @@ local M = {}
 M.search_dotfiles = function()
     require("telescope.builtin").find_files({prompt_title = "< VimRC >", cwd = "~/code/nixos/home/nvim"})
 end
-
 
 return M

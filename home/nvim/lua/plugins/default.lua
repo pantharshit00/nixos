@@ -10,7 +10,7 @@ vim.api.nvim_set_var('closetag_shortcut', '>')
 -- After you have what you want press C-Y and , at the same time
 -- autocmd FileType html,css EmmetInstall
 -- vim.g.user_emmet_leader_key='<leader>'
-vim.g.user_emmet_mode='inv'
+vim.g.user_emmet_mode = 'inv'
 vim.g.user_emmet_expandabbr_key = '<C-y>,'
 vim.g.user_emmet_expandword_key = '<C-y>;'
 vim.g.user_emmet_update_tag = '<C-y>u'
@@ -27,20 +27,19 @@ vim.g.user_emmet_anchorizesummary_key = '<C-y>A'
 vim.g.user_emmet_mergelines_key = '<C-y>m'
 vim.g.user_emmet_codepretty_key = '<C-y>c'
 
-
 -- Floaterm
 vim.g.floaterm_keymap_toggle = '<F1>'
-vim.g.floaterm_keymap_next   = '<F2>'
-vim.g.floaterm_keymap_prev   = '<F3>'
-vim.g.floaterm_keymap_new    = '<F4>'
-vim.g.floaterm_title=''
+vim.g.floaterm_keymap_next = '<F2>'
+vim.g.floaterm_keymap_prev = '<F3>'
+vim.g.floaterm_keymap_new = '<F4>'
+vim.g.floaterm_title = ''
 
-vim.g.floaterm_gitcommit='floaterm'
-vim.g.floaterm_autoinsert=1
-vim.g.floaterm_width=0.8
-vim.g.floaterm_height=0.8
-vim.g.floaterm_wintitle=0
-vim.g.floaterm_autoclose=1
+vim.g.floaterm_gitcommit = 'floaterm'
+vim.g.floaterm_autoinsert = 1
+vim.g.floaterm_width = 0.8
+vim.g.floaterm_height = 0.8
+vim.g.floaterm_wintitle = 0
+vim.g.floaterm_autoclose = 1
 
 -- Indent line
 vim.g.indent_blankline_buftype_exclude = {'terminal'}
@@ -58,29 +57,29 @@ vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_li
 -- LSP Kind
 -- symbols for autocomplete
 require('lspkind').init({
-  with_text = false,
-  symbol_map = {
-    Text = '  ',
-    Method = '  ',
-    Function = '  ',
-    Constructor = '  ',
-    Variable = '[]',
-    Class = '  ',
-    Interface = ' 蘒',
-    Module = '  ',
-    Property = '  ',
-    Unit = ' 塞 ',
-    Value = '  ',
-    Enum = ' 練',
-    Keyword = '  ',
-    Snippet = '  ',
-    Color = '',
-    File = '',
-    Folder = ' ﱮ ',
-    EnumMember = '  ',
-    Constant = '  ',
-    Struct = '  '
-  },
+    with_text = false,
+    symbol_map = {
+        Text = '  ',
+        Method = '  ',
+        Function = '  ',
+        Constructor = '  ',
+        Variable = '[]',
+        Class = '  ',
+        Interface = ' 蘒',
+        Module = '  ',
+        Property = '  ',
+        Unit = ' 塞 ',
+        Value = '  ',
+        Enum = ' 練',
+        Keyword = '  ',
+        Snippet = '  ',
+        Color = '',
+        File = '',
+        Folder = ' ﱮ ',
+        EnumMember = '  ',
+        Constant = '  ',
+        Struct = '  '
+    }
 })
 
 -- LSP saga
@@ -89,30 +88,28 @@ local saga = require 'lspsaga'
 saga.init_lsp_saga {code_action_icon = ''}
 
 -- Toggle term
-require"toggleterm".setup{
-  size = 20,
-  open_mapping = [[<c-\>]],
-  shade_terminals = true,
-  shading_factor = '1', 
-  start_in_insert = true,
-  persist_size = true,
-  direction = 'vertical'
+require"toggleterm".setup {
+    size = 20,
+    open_mapping = [[<c-\>]],
+    shade_terminals = true,
+    shading_factor = '1',
+    start_in_insert = true,
+    persist_size = true,
+    direction = 'vertical'
 }
 
 -- Treesitter
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	ignore_install = { "haskell" },
-  highlight = {
-      enable = true, -- false will disable the whole extension
-  },
-  indent = {
-    enable = true
-  },
-  incremental_selection = {
-      enable = true,
-      keymaps = {init_selection = "vi", node_incremental = "n", scope_incremental = "s", node_decremental = "nd"}
-  },
+    ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    ignore_install = {"haskell"},
+    highlight = {
+        enable = true -- false will disable the whole extension
+    },
+    indent = {enable = true},
+    incremental_selection = {
+        enable = true,
+        keymaps = {init_selection = "vi", node_incremental = "n", scope_incremental = "s", node_decremental = "nd"}
+    }
 }
 
 -- rooter

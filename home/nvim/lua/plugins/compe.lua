@@ -21,13 +21,13 @@ require'compe'.setup {
         vsnip = {kind = "  "},
         nvim_lsp = {kind = "  "},
         -- nvim_lua = {kind = "  "},
-		nvim_lua = false,
+        nvim_lua = false,
         spell = {kind = "  "},
         tags = false,
         -- snippets_nvim = {kind = "  "},
         -- ultisnips = {kind = "  "},
         -- treesitter = {kind = "  "},
-        emoji = {kind = " ﲃ ", filetypes={"markdown"}}
+        emoji = {kind = " ﲃ ", filetypes = {"markdown"}}
         -- for emoji press : (idk if that in compe tho)
     }
 }

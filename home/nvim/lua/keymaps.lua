@@ -8,44 +8,44 @@ local function map(mode, lhs, rhs)
 end
 
 local function noremap(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, {noremap = true, silent = true})
+    vim.api.nvim_set_keymap(mode, lhs, rhs, {noremap = true, silent = true})
 end
 
 local function nmap(lhs, rhs)
-  map('n', lhs, rhs)
+    map('n', lhs, rhs)
 end
 
 local function nnoremap(lhs, rhs)
-  noremap('n', lhs, rhs)
+    noremap('n', lhs, rhs)
 end
 
 local function vnoremap(lhs, rhs)
-  noremap('v', lhs, rhs)
+    noremap('v', lhs, rhs)
 end
 
 local function xnoremap(lhs, rhs)
-  noremap('x', lhs, rhs)
+    noremap('x', lhs, rhs)
 end
 
 local function inoremap(lhs, rhs)
-  noremap('i', lhs, rhs)
+    noremap('i', lhs, rhs)
 end
 
 local function tnoremap(lhs, rhs)
-  noremap('t', lhs, rhs)
+    noremap('t', lhs, rhs)
 end
 
 local function imap(lhs, rhs)
-  map('i', lhs, rhs)
+    map('i', lhs, rhs)
 end
 
 -- NVIM Compe Remaps
 local function exprnoremap(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, {noremap = true, silent = true, expr = true})
+    vim.api.nvim_set_keymap(mode, lhs, rhs, {noremap = true, silent = true, expr = true})
 end
 
 local function exprinoremap(lhs, rhs)
-  exprnoremap('i', lhs, rhs)
+    exprnoremap('i', lhs, rhs)
 end
 
 -- Completion Manager keybinds
@@ -80,7 +80,7 @@ vim.cmd(':command ShowCursorError lua require\'lspsaga.diagnostic\'.show_cursor_
 nnoremap("<leader>e", "<cmd>ShowCursorError<CR>")
 
 nnoremap('<leader>rn', ':Lspsaga rename<CR>')
---=======--
+-- =======--
 
 -- Command Line Mapping
 vim.cmd(':command SearchFiles lua require(\'telescope.builtin\').git_files()')
@@ -157,7 +157,7 @@ vnoremap('<', '<gv')
 vnoremap('>', '>gv')
 
 -- jk to return to normap mode
-imap('jk','<Esc>')
+imap('jk', '<Esc>')
 
 -- lsptrouble
-nnoremap('<leader>xx','<cmd>LspTroubleToggle<cr>')
+nnoremap('<leader>xx', '<cmd>LspTroubleToggle<cr>')
