@@ -80,11 +80,8 @@ require('telescope').setup {
 
 local M = {}
 M.search_dotfiles = function()
-    require("telescope.builtin").find_files({prompt_title = "< VimRC >", cwd = "~/.dotfiles/config/nvim"})
+    require("telescope.builtin").find_files({prompt_title = "< VimRC >", cwd = "~/code/nixos/home/nvim"})
 end
 
-M.search_garden = function()
-    require("telescope.builtin").find_files({prompt_title = "< Garden >", cwd = "~/tech-garden"})
-end
 
 return M
