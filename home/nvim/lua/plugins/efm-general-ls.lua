@@ -33,16 +33,6 @@ local shellcheck = {
 
 local shfmt = {formatCommand = 'shfmt -ci -s -bn', formatStdin = true}
 
-local markdownlint = {
-    -- TODO default to global lintrc
-    -- lintcommand = 'markdownlint -s -c ./markdownlintrc',
-    lintCommand = 'markdownlint -s -f',
-    lintStdin = true,
-    lintFormats = {'%f:%l %m', '%f:%l:%c %m', '%f: %l: %m'}
-}
-
-local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --tab-stop=2', formatStdin = true}
-
 require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
     init_options = {documentFormatting = true, codeaction = false},
@@ -62,7 +52,6 @@ require"lspconfig".efm.setup {
             css = {prettier_global},
             json = {prettier_global},
             yaml = {prettier_global},
-            markdown = {markdownlint, markdownPandocFormat}
         }
     }
 }
