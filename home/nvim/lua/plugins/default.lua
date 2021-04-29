@@ -52,6 +52,7 @@ vim.api.nvim_set_keymap("v", "<C-_>", "<Plug>kommentary_visual_default", {})
 
 -- lightbulb
 -- Showing defaults
+
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
 -- LSP Kind
@@ -108,19 +109,10 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
   },
-  playground = {
-      enable = true,
-      disable = {},
-      updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-      persist_queries = false -- Whether the query persists across vim sessions
-  },
-  autotag = {enable = true},
   incremental_selection = {
       enable = true,
       keymaps = {init_selection = "vi", node_incremental = "n", scope_incremental = "s", node_decremental = "nd"}
   },
-  rainbow = {enable = true}
-  -- refactor = {highlight_definitions = {enable = true}}
 }
 
 -- rooter

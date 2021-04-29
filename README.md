@@ -1,4 +1,4 @@
-# NixOS config
+  # NixOS config
 
 WIP. 
 

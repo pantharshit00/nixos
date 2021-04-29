@@ -52,9 +52,10 @@ local configs = require'lspconfig/configs'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local emmet_ls_cmd = isWindows() and "emmet-ls.cmd" or "emmet-ls"
 configs.emmet_ls = {
   default_config = {
-    cmd = {'emmet-ls', '--stdio'};
+    cmd = {emmet_ls_cmd, '--stdio'};
     filetypes = {'html', 'css', "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx"};
     root_dir = function()
       return vim.loop.cwd()
