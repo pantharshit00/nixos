@@ -19,6 +19,7 @@ return require('packer').startup(function()
 	use {'glepnir/galaxyline.nvim' , branch = 'main'}	
 	
 	use 'kyazdani42/nvim-web-devicons'  -- Devicons for Plugins
+	use 'romgrk/barbar.nvim' -- make the top tab bar pretty
 
 	-- Web Dev
   use 'alvan/vim-closetag'
