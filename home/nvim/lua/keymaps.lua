@@ -56,7 +56,6 @@ exprinoremap('<C-f>', 'compe#scroll({ \'delta\': +4 })')
 exprinoremap('<C-d>', 'compe#scroll({ \'delta\': -4 })')
 
 -- Map Leader Key to <Space>
-nnoremap('<Space>', '<NOP>')
 vim.g.mapleader = ' '
 
 ---== LSP Saga ==---
@@ -65,7 +64,7 @@ nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 nnoremap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 
-nnoremap('<leader>ca', ':Lspsaga code_action<CR>')
+nnoremap('<leader>ac', ':Lspsaga code_action<CR>')
 nnoremap('K', ':Lspsaga hover_doc<CR>')
 
 -- vim.cmd('nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
@@ -80,7 +79,7 @@ vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").
 vim.cmd(':command ShowCursorError lua require\'lspsaga.diagnostic\'.show_cursor_diagnostics()')
 nnoremap("<leader>e", "<cmd>ShowCursorError<CR>")
 
-nnoremap('<leader>cr', ':Lspsaga rename<CR>')
+nnoremap('<leader>rn', ':Lspsaga rename<CR>')
 --=======--
 
 -- Command Line Mapping
@@ -140,8 +139,8 @@ nnoremap('<C-k>', ':wincmd k<CR>')
 nnoremap('<C-l>', ':wincmd l<CR>')
 
 -- alt + hjkl to resize
-nnoremap('<M-h>', ':vertical resize -2<CR>')
-nnoremap('<M-l>', ':vertical resize +2<CR>')
+nnoremap('<M-h>', ':vertical resize -5<CR>')
+nnoremap('<M-l>', ':vertical resize +5<CR>')
 
 vim.cmd(':command LeftWindow :wincmd h')
 vim.cmd(':command DownWindow :wincmd j')
