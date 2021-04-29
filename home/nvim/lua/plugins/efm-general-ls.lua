@@ -18,11 +18,11 @@ local prettier = {formatCommand = "prettier --stdin-filepath ${INPUT}", formatSt
 local prettier_global = {formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
 
 local eslint = {
-    lintCommand = "eslint -f unix --stdin --stdin-filename ${INPUT}",
+    lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
     lintStdin = true,
     lintFormats = {"%f:%l:%c: %m"},
-    formatCommand = "eslint --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+    formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
     formatStdin = true
 }
 
@@ -36,7 +36,7 @@ local shfmt = {formatCommand = 'shfmt -ci -s -bn', formatStdin = true}
 require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
     init_options = {documentFormatting = true, codeaction = false},
-    filetypes = {"lua", "javascriptreact", "javascript", "sh", "html", "css", "json", "yaml", "markdown"},
+    filetypes = {"lua","typescript", "typescriptreact", "javascriptreact", "javascript", "sh", "html", "css", "json", "yaml", "markdown"},
     settings = {
         rootMarkers = {".git/"},
         languages = {
