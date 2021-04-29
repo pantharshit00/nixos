@@ -15,7 +15,8 @@ return require('packer').startup(function()
 	-- Appearence
   use 'challenger-deep-theme/vim'     -- Challenger deep theme
 	use 'haishanh/night-owl.vim' 				-- night-owl Theme
-  use 'kyazdani42/nvim-tree.lua' 			-- Explorer
+	-- TODO: Change from this fork to main repo when fixes are merged
+  use 'sindrets/nvim-tree.lua' 			-- Explorer
 	use {'glepnir/galaxyline.nvim' , branch = 'main'}	
 	
 	use 'kyazdani42/nvim-web-devicons'  -- Devicons for Plugins

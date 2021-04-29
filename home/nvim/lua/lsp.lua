@@ -22,7 +22,7 @@ function lsp.common_on_attach(client, bufnr)
 end
 
 function lsp.tsserver_on_attach(client, bufnr)
-  lsp.common_on_attach(client, bufnr)
+  lsp.on_attach_common(client, bufnr)
   client.resolved_capabilities.document_formatting = false
 end
 

@@ -20,9 +20,9 @@ vim.o.splitbelow = true 						-- Horizontal splits will automatically be below
 vim.o.splitright = true 						-- Vertical splits will automatically be to the right
 vim.o.t_Co = "256" 									-- Support 256 colors
 vim.o.conceallevel = 0 							-- So that I can see `` in markdown files
-vim.cmd('set ts=2') 								-- Insert 2 spaces for a tab
-vim.cmd('set sw=2') 								-- Change the number of space characters inserted for indentation
-vim.bo.expandtab = true 						-- Converts tabs to spaces
+vim.cmd('set tabstop=2') 						-- Insert 2 spaces for a tab
+vim.cmd('set shiftwidth=2') 				-- Change the number of space characters inserted for indentation
+vim.cmd('set expandtab') 						-- Converts tabs to spaces
 vim.bo.smartindent = true 					-- Makes indenting smart
 vim.wo.cursorline = true 						-- Enable highlighting of the current line
 vim.o.showtabline = 2 							-- Always show tabs

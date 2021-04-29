@@ -12,8 +12,17 @@ require'lspconfig'.tsserver.setup {
   settings = {documentFormatting = false}
 }
 
+local function isWindows()
+  return package.config:sub(1,1) == '\\'
+end
+
+local lua_bin = isWindows() and 'lua-language-server-bin.cmd' or 'lua-language-server-bin'
+
+
 -- lua
-require'lspconfig'.sumneko_lua.setup{ }
+require'lspconfig'.sumneko_lua.setup{
+  cmd = { lua_bin }  
+}
 
 -- npm install -g vscode-html-languageserver-bin
 local capabilities = vim.lsp.protocol.make_client_capabilities()
