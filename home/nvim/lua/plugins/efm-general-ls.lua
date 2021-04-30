@@ -13,17 +13,16 @@ local luaFormat = {
     formatStdin = true
 }
 -- JavaScript/React/TypeScript
-local prettier ={formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
-
-local prettier_global = {formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
+local prettier = {formatCommand = "prettierd ${INPUT}", formatStdin = true}
 
 local eslint = {
     lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
     lintStdin = true,
     lintFormats = {"%f:%l:%c: %m"},
-    formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-    formatStdin = true
+    rootMarkers = {
+        '.eslintrc','.eslintrc.js', '.eslintrc.cjs', '.eslintrc.yaml', '.eslintrc.yml', '.eslintrc.json', '.git', 'package.json'
+    }
 }
 
 local shellcheck = {
@@ -35,23 +34,26 @@ local shfmt = {formatCommand = 'shfmt -ci -s -bn', formatStdin = true}
 
 require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
-    init_options = {documentFormatting = true, codeaction = false},
-    filetypes = {"lua","typescript", "typescriptreact", "javascriptreact", "javascript", "sh", "html", "css", "json", "yaml", "markdown"},
+    init_options = {documentFormatting = true},
+    filetypes = {
+        "lua", "typescript", "typescriptreact", "javascriptreact", "javascript", "sh", "html", "css", "json", "yaml",
+        "markdown"
+    },
     settings = {
         rootMarkers = {".git/"},
         languages = {
             -- lua = {luaFormat},
             python = {isort, yapf},
-            javascript = {eslint},
-            typescript = {eslint},
-            javascriptreact = {eslint},
-            typescriptreact = {eslint},
+            javascript = {prettier, eslint},
+            typescript = {prettier, eslint},
+            javascriptreact = {prettier, eslint},
+            typescriptreact = {prettier, eslint},
             sh = {shellcheck, shfmt},
             lua = {luaFormat},
-            html = {prettier_global},
-            css = {prettier_global},
-            json = {prettier_global},
-            yaml = {prettier_global},
+            html = {prettier},
+            css = {prettier},
+            json = {prettier},
+            yaml = {prettier}
         }
     }
 }

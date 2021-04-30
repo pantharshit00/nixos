@@ -75,5 +75,5 @@ require'lspconfig'.bashls.setup {cmd = {"bash-language-server", "start"}, on_att
 require('rust-tools').setup {}
 
 -- autoformat
-vim.cmd [[autocmd BufWritePre *.ts,*.css,*.html,*.ts,*.tsx,*.js,*.jsx,*.rs,*.html,*.graphql,*.c,*.md lua vim.lsp.buf.formatting_sync(nil, 1000)]]
+vim.cmd [[autocmd BufWritePre *.ts,*.css,*.html,*.ts,*.tsx,*.js,*.jsx,*.rs,*.html,*.graphql,*.c,*.md lua vim.lsp.buf.formatting_sync(nil, 500)]]
 
