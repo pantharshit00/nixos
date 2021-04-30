@@ -8,7 +8,12 @@
 -- require'completion'.on_attach(client)
 -- require'illuminate'.on_attach(client)
 -- end
-require'lspconfig'.tsserver.setup {settings = {documentFormatting = false}}
+require'lspconfig'.tsserver.setup {
+    on_attach = function(client)
+        if client.config.flags then client.config.flags.allow_incremental_sync = true end
+        client.resolved_capabilities.document_formatting = false
+    end
+}
 
 local function isWindows()
     return package.config:sub(1, 1) == '\\'
@@ -54,14 +59,12 @@ configs.emmet_ls = {
             'html', 'css', "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
             "typescript.tsx"
         },
-        root_dir = function()
-            return vim.loop.cwd()
-        end,
+        root_dir = require'lspconfig'.util.root_pattern('package.json'),
         settings = {}
     }
 }
 
-nvim_lsp.emmet_ls.setup {on_attach = on_attach}
+nvim_lsp.emmet_ls.setup {on_attach = require'lsp'.common_on_attach}
 
 -- npm install -g vscode-css-languageserver-bin
 require'lspconfig'.cssls.setup {on_attach = require'lsp'.common_on_attach}

@@ -13,7 +13,7 @@ local luaFormat = {
     formatStdin = true
 }
 -- JavaScript/React/TypeScript
-local prettier = {formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
+local prettier ={formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
 
 local prettier_global = {formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
 
