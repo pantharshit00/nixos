@@ -61,8 +61,9 @@ nvim_lsp.emmet_ls.setup {on_attach = require'lsp'.common_on_attach}
 -- npm install -g vscode-css-languageserver-bin
 require'lspconfig'.cssls.setup {on_attach = require'lsp'.common_on_attach}
 
+local bash_bin_name = isWindows() and "bash-language-server.cmd" or "bash-language-server";
 -- npm i -g bash-language-server
-require'lspconfig'.bashls.setup {cmd = {"bash-language-server", "start"}, on_attach = require'lsp'.common_on_attach}
+require'lspconfig'.bashls.setup {cmd = {bash_bin_name, "start"}, on_attach = require'lsp'.common_on_attach}
 
 require('rust-tools').setup {}
 
