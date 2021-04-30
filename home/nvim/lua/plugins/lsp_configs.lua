@@ -31,16 +31,8 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require'lspconfig'.html.setup {on_attach = require'lsp'.common_on_attach, capabilities = capabilities}
 
 -- npm install -g vscode-json-languageserver
-require'lspconfig'.jsonls.setup {
-    on_attach = require'lsp'.common_on_attach,
-    commands = {
-        Format = {
-            function()
-                vim.lsp.buf.range_formatting({}, {0, 0}, {vim.fn.line("$"), 0})
-            end
-        }
-    }
-}
+local jsonServerCmd = isWindows() and 'vscode-json-languageserver.cmd' or 'vscode-json-languageserver'
+require'lspconfig'.jsonls.setup {cmd = {jsonServerCmd, "--stdio"}, on_attach = require'lsp'.common_on_attach}
 
 -- npm install -g graphql-language-service-cli
 require'lspconfig'.graphql.setup {on_attach = require'lsp'.common_on_attach}
@@ -75,5 +67,5 @@ require'lspconfig'.bashls.setup {cmd = {"bash-language-server", "start"}, on_att
 require('rust-tools').setup {}
 
 -- autoformat
-vim.cmd [[autocmd BufWritePre *.ts,*.css,*.html,*.ts,*.tsx,*.js,*.jsx,*.rs,*.html,*.graphql,*.c,*.md lua vim.lsp.buf.formatting_sync(nil, 500)]]
+vim.cmd [[autocmd BufWritePre *.ts,*.css,*.html,*.ts,*.tsx,*.js,*.jsx,*.json,*.rs,*.html,*.graphql,*.c,*.md lua vim.lsp.buf.formatting_sync(nil, 500)]]
 

@@ -21,7 +21,7 @@ local eslint = {
     lintStdin = true,
     lintFormats = {"%f:%l:%c: %m"},
     rootMarkers = {
-        '.eslintrc','.eslintrc.js', '.eslintrc.cjs', '.eslintrc.yaml', '.eslintrc.yml', '.eslintrc.json', '.git', 'package.json'
+        '','.eslintrc.js', '.eslintrc.cjs', '.eslintrc.yaml', '.eslintrc.yml', '.eslintrc.json', '.git', 'package.json'
     }
 }
 
