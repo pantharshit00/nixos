@@ -49,11 +49,15 @@ local function exprinoremap(lhs, rhs)
 end
 
 -- Completion Manager keybinds
-exprinoremap('<C-Space>', 'compe#complete()')
+if vim.fn.has('win32') == 1 then
+    exprinoremap('<C-x>', 'compe#complete()')
+else
+    exprinoremap('<C-Space>', 'compe#complete()')
+end
 exprinoremap('<CR>', 'compe#confirm(\'<CR>\')')
 exprinoremap('<C-e>', 'compe#close(\'<C-e>\')')
-exprinoremap('<C-f>', 'compe#scroll({ \'delta\': +4 })')
-exprinoremap('<C-d>', 'compe#scroll({ \'delta\': -4 })')
+exprinoremap('<C-f>', "compe#scroll({ 'delta': +4 })")
+exprinoremap('<C-d>', "compe#scroll({ 'delta': -4 })")
 
 -- Map Leader Key to <Space>
 vim.g.mapleader = ' '

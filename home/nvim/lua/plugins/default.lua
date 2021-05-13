@@ -52,7 +52,7 @@ vim.api.nvim_set_keymap("v", "<C-_>", "<Plug>kommentary_visual_default", {})
 -- lightbulb
 -- Showing defaults
 
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
 -- LSP Kind
 -- symbols for autocomplete

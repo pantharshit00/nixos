@@ -71,6 +71,8 @@ return require('packer').startup(function()
         end
     }
 
+    use 'tpope/vim-surround'
+
     -- find and replace example
     use 'kevinhwang91/nvim-bqf'
     use 'airblade/vim-rooter'
