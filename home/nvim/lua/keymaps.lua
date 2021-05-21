@@ -94,10 +94,6 @@ vim.cmd(':command SearchVimConfig lua require(\'plugins/telescope\').search_dotf
 -- Toggle explorer
 nnoremap('<C-b>', ':NvimTreeToggle<CR>')
 
--- Toggle Integrated Terminal
-nnoremap('<leader>t', ':ToggleTerm<Enter>')
-tnoremap('<leader>t', '<C-\\><C-n>:ToggleTerm<Enter>')
-
 -- Esc to get out of terminal
 tnoremap('<C-\\>', '<C-\\><C-n>')
 

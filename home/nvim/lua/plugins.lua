@@ -17,7 +17,9 @@ return require('packer').startup(function()
     use 'haishanh/night-owl.vim' -- night-owl Theme
     -- TODO: Change from this fork to main repo when fixes are merged
     use 'sindrets/nvim-tree.lua' -- Explorer
-    use {'glepnir/galaxyline.nvim', branch = 'main'}
+    use {
+        'hoob3rt/lualine.nvim',
+      }
 
     use 'kyazdani42/nvim-web-devicons' -- Devicons for Plugins
 
@@ -31,10 +33,10 @@ return require('packer').startup(function()
     use 'onsails/lspkind-nvim' -- Better icons for autcomplete
     use 'kosayoda/nvim-lightbulb'
     use 'anott03/nvim-lspinstall'
+    use 'folke/tokyonight.nvim'
 
     use {
         "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
         config = function()
             require("trouble").setup {
                 -- your configuration comes here
@@ -53,7 +55,6 @@ return require('packer').startup(function()
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim' -- Telescope: Searching  
-    use 'akinsho/nvim-toggleterm.lua' -- Terminal for Neovim
     use 'nvim-lua/popup.nvim' -- Neovim Popup API
     use 'nvim-lua/plenary.nvim' -- Functions you don't wanna write again
     use 'nvim-telescope/telescope-media-files.nvim'
@@ -76,6 +77,14 @@ return require('packer').startup(function()
     }
 
     use 'tpope/vim-surround'
+
+    -- Git
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
 
     -- find and replace example
     use 'kevinhwang91/nvim-bqf'
