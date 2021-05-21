@@ -16,10 +16,8 @@ return require('packer').startup(function()
     use 'challenger-deep-theme/vim' -- Challenger deep theme
     use 'haishanh/night-owl.vim' -- night-owl Theme
     -- TODO: Change from this fork to main repo when fixes are merged
-    use 'sindrets/nvim-tree.lua' -- Explorer
-    use {
-        'hoob3rt/lualine.nvim',
-      }
+    use 'kyazdani42/nvim-tree.lua'
+    use {'hoob3rt/lualine.nvim'}
 
     use 'kyazdani42/nvim-web-devicons' -- Devicons for Plugins
 
@@ -31,8 +29,8 @@ return require('packer').startup(function()
     use 'neovim/nvim-lspconfig' -- Language Server Protocol Config
     use 'glepnir/lspsaga.nvim'
     use 'onsails/lspkind-nvim' -- Better icons for autcomplete
-    use 'kosayoda/nvim-lightbulb'
-    use 'anott03/nvim-lspinstall'
+    -- use 'kosayoda/nvim-lightbulb'
+    -- use 'anott03/nvim-lspinstall'
     use 'folke/tokyonight.nvim'
 
     use {
@@ -69,12 +67,12 @@ return require('packer').startup(function()
     use 'hrsh7th/vim-vsnip-integ'
 
     -- General
-    use {
+    --[[ use {
         "folke/which-key.nvim",
         config = function()
             require("which-key").setup {}
         end
-    }
+    } ]]
 
     use 'tpope/vim-surround'
 
@@ -90,8 +88,8 @@ return require('packer').startup(function()
     use 'kevinhwang91/nvim-bqf'
     use 'airblade/vim-rooter'
     use 'voldikss/vim-floaterm'
-    use 'liuchengxu/vista.vim'
     use 'b3nj5m1n/kommentary'
+    use {'simrat39/symbols-outline.nvim', cmd = {'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose'}}
     use 'bfredl/nvim-miniyank'
     use 'andymass/vim-matchup' -- Better %
     use 'wakatime/vim-wakatime'
