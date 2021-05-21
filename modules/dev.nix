@@ -19,6 +19,7 @@ in {
       gdb
       perl
       clang
+      clangStdenv
       binutils
       zlib
       shellcheck
