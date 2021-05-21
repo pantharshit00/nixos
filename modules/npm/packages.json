@@ -11,6 +11,8 @@
   "emmet-ls",
   "prettier",
   "eslint",
+  "eslint_d",
+  "@fsouza/prettierd",
   "vscode-css-languageserver-bin",
   "prisma",
   "bash-language-server"

@@ -50,6 +50,8 @@ in {
       yarn
       typescript-language-server
       fromNpm."@prisma/language-server"
+      fromNpm."@fsouza/prettierd"
+      eslint_d
       vscode-json-languageserver
       vscode-html-languageserver-bin
       graphql-language-service-cli
