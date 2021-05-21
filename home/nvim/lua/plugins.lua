@@ -20,7 +20,6 @@ return require('packer').startup(function()
     use {'glepnir/galaxyline.nvim', branch = 'main'}
 
     use 'kyazdani42/nvim-web-devicons' -- Devicons for Plugins
-    use 'romgrk/barbar.nvim' -- make the top tab bar pretty
 
     -- Web Dev
     use 'alvan/vim-closetag'
@@ -57,7 +56,6 @@ return require('packer').startup(function()
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'nvim-treesitter/playground'
-    use 'p00f/nvim-ts-rainbow'
 
     -- Snippets
     use 'hrsh7th/vim-vsnip' -- Snipper Integration for Neovim
@@ -83,7 +81,6 @@ return require('packer').startup(function()
     use 'andymass/vim-matchup' -- Better %
     use 'wakatime/vim-wakatime'
 
-    use 'TimUntersberger/neogit' -- Git integration for Neovim
     use 'mbbill/undotree' -- Undotree to undo stuff well
     use 'moll/vim-bbye' -- Better Tab Closing; Incompat. with Barbar
     use 'windwp/nvim-autopairs'

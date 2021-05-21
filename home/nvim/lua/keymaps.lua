@@ -113,9 +113,6 @@ nnoremap('<leader>qf', ':copen<CR>')
 nnoremap('<leader>qj', ':cnext<CR>')
 nnoremap('<leader>qk', ':cprevious<CR>')
 
--- Neogit
-nnoremap('<leader>g', ':Neogit<CR>')
-
 -- LSP Format
 nnoremap("<leader>p", ":lua vim.lsp.buf.formatting()<CR>")
 

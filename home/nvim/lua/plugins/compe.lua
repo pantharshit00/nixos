@@ -17,17 +17,16 @@ require'compe'.setup {
     source = {
         path = {kind = "  "},
         buffer = {kind = "  "},
-        calc = {kind = "  "},
+        calc = false,
         vsnip = {kind = "  "},
         nvim_lsp = {kind = "  "},
-        -- nvim_lua = {kind = "  "},
         nvim_lua = false,
-        spell = {kind = "  "},
+        spell = false,
         tags = false,
-        -- snippets_nvim = {kind = "  "},
-        -- ultisnips = {kind = "  "},
-        treesitter = {kind = "  "},
-        emoji = {kind = " ﲃ ", filetypes = {"markdown"}}
+        snippets_nvim = false,
+        ultisnips = false,
+        treesitter = false;
+        emoji = false
         -- for emoji press : (idk if that in compe tho)
     }
 }
@@ -74,8 +73,25 @@ vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
+
+
 --[[ vim.cmd('inoremap <silent><expr> <C-Space> compe#complete()')
 vim.cmd('inoremap <silent><expr> <CR>      compe#confirm(lexima#expand(\'<LT>CR>\', \'i\'))')
 vim.cmd('inoremap <silent><expr> <C-e>     compe#close(\'<C-e>\')')
 vim.cmd('inoremap <silent><expr> <C-f>     compe#scroll({ \'delta\': +4 })')
 vim.cmd('inoremap <silent><expr> <C-d>     compe#scroll({ \'delta\': -4 })') ]]
+
+vim.g.loaded_compe_calc = 0
+vim.g.loaded_compe_emoji = 0
+vim.g.loaded_compe_luasnip = 0
+vim.g.loaded_compe_nvim_lua = 0
+vim.g.loaded_compe_spell = 0
+vim.g.loaded_compe_tags = 0
+vim.g.loaded_compe_treesitter = 0
+vim.g.loaded_compe_snippets_nvim = 0
+vim.g.loaded_compe_ultisnips = 0
+vim.g.loaded_compe_vim_lsc = 0
+vim.g.loaded_compe_omni = 0
+vim.g.loaded_compe_vim_lsp = 0
+vim.g.loaded_compe_path = 0
+

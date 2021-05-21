@@ -41,10 +41,6 @@ vim.g.floaterm_height = 0.8
 vim.g.floaterm_wintitle = 0
 vim.g.floaterm_autoclose = 1
 
--- Indent line
-vim.g.indent_blankline_buftype_exclude = {'terminal'}
-vim.g.indent_blankline_filetype_exclude = {'help', 'startify', 'dashboard', 'packer', 'neogitstatus'}
-
 -- Kommentary
 vim.api.nvim_set_keymap("n", "<C-_>", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("v", "<C-_>", "<Plug>kommentary_visual_default", {})
