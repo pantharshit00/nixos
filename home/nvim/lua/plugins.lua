@@ -67,12 +67,12 @@ return require('packer').startup(function()
     use 'hrsh7th/vim-vsnip-integ'
 
     -- General
-    --[[ use {
+    use {
         "folke/which-key.nvim",
         config = function()
             require("which-key").setup {}
         end
-    } ]]
+    }
 
     use 'tpope/vim-surround'
 
