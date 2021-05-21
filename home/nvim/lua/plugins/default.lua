@@ -1,11 +1,3 @@
--- Autoclose Tags --
-vim.api.nvim_set_var('closetag_filenames', '*.html,*.xhtml,*.phtml, *.jsx, *.js, *.tsx')
-vim.api.nvim_set_var('closetag_xhtml_filenames', '*.xhtml,*.jsx, *.tsx, *.js')
-vim.api.nvim_set_var('closetag_filetypes', 'html,xhtml,phtml')
-vim.api.nvim_set_var('closetag_xhtml_filetypes', 'xhtml,jsx')
-vim.api.nvim_set_var('closetag_emptyTags_caseSensitive', 1)
-vim.api.nvim_set_var('closetag_shortcut', '>')
-
 -- Emmet
 -- After you have what you want press C-Y and , at the same time
 -- autocmd FileType html,css EmmetInstall
@@ -98,6 +90,7 @@ require"toggleterm".setup {
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ignore_install = {"haskell"},
+    autotag = {enable = true},
     highlight = {
         enable = true -- false will disable the whole extension
     },

@@ -83,11 +83,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kommentary"
   },
-  ["lsp-trouble.nvim"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
-    loaded = true,
-    path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-trouble.nvim"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind-nvim"
@@ -144,6 +139,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter-refactor"
   },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-autotag"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons"
@@ -176,6 +175,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim"
   },
+  ["trouble.nvim"] = {
+    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\trouble.nvim"
+  },
   undotree = {
     loaded = true,
     path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\undotree"
@@ -187,10 +191,6 @@ _G.packer_plugins = {
   ["vim-bbye"] = {
     loaded = true,
     path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-bbye"
-  },
-  ["vim-closetag"] = {
-    loaded = true,
-    path = "C:\\Users\\harshit\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-closetag"
   },
   ["vim-floaterm"] = {
     loaded = true,
@@ -252,10 +252,10 @@ time("Defining packer_plugins", false)
 time("Config for which-key.nvim", true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
 time("Config for which-key.nvim", false)
--- Config for: lsp-trouble.nvim
-time("Config for lsp-trouble.nvim", true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "lsp-trouble.nvim")
-time("Config for lsp-trouble.nvim", false)
+-- Config for: trouble.nvim
+time("Config for trouble.nvim", true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time("Config for trouble.nvim", false)
 if should_profile then save_profiles() end
 
 END

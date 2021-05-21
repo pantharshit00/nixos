@@ -22,8 +22,8 @@ return require('packer').startup(function()
     use 'kyazdani42/nvim-web-devicons' -- Devicons for Plugins
 
     -- Web Dev
-    use 'alvan/vim-closetag'
     use 'jparise/vim-graphql'
+    use 'windwp/nvim-ts-autotag'
 
     -- LSP
     use 'neovim/nvim-lspconfig' -- Language Server Protocol Config
@@ -31,10 +31,16 @@ return require('packer').startup(function()
     use 'onsails/lspkind-nvim' -- Better icons for autcomplete
     use 'kosayoda/nvim-lightbulb'
     use 'anott03/nvim-lspinstall'
+
     use {
-        "folke/lsp-trouble.nvim",
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            require("trouble").setup {}
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
         end
     }
 

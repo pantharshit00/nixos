@@ -32,4 +32,4 @@ vim.o.timeoutlen = 100 -- By default timeoutlen is 1000 ms
 vim.cmd('set colorcolumn=99999') -- Fix Vim Indentline 
 
 vim.cmd("filetype plugin on") -- Auto Indentation Levels 
-vim.cmd("filetype indent off") -- Auto Indentation Levels
+vim.cmd("filetype indent on") -- Auto Indentation Levels
