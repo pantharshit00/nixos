@@ -5,14 +5,13 @@ icons = "awesome"
 block = "net"
 device = "wlan0"
 format = "{speed_up} {speed_down}"
-interval = 2
-use_bits = false
+interval = 1
 
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
+format_mem = "{mem_used_percents}%"
+format_swap = "{swap_used_percents}%"
 
 [[block]]
 block = "cpu"
@@ -27,13 +26,13 @@ format = "%a %d/%m %r"
 block = "temperature"
 interval = 3
 collapsed = false
-format = "{average}° {max}°"
+format = "{average} {max}"
 chip = "coretemp-isa-0000"
 
 [[block]]
 block = "battery"
 interval = 10
-format = " {percentage}%"
+format = " {percentage}"
 
 [[block]]
 block = "backlight"

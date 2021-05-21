@@ -2,6 +2,7 @@
 
 let
   fromNpm = import ./npm { inherit pkgs; };
+  efm = import ./efm.nix { inherit lib pkgs; };
   node = pkgs.nodejs-12_x;
   yarn = pkgs.yarn.override { nodejs = node; };
 in {
@@ -12,6 +13,7 @@ in {
     with fromNpm; [
       ansible
       neovim-nightly
+      efm
       vscode
       git
       gdb
