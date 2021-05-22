@@ -33,3 +33,4 @@ vim.cmd('set colorcolumn=99999') -- Fix Vim Indentline
 
 vim.cmd("filetype plugin on") -- Auto Indentation Levels 
 vim.cmd("filetype indent on") -- Auto Indentation Levels
+vim.cmd("set fileformat=unix")
