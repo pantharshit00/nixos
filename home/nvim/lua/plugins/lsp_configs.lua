@@ -56,22 +56,10 @@ configs.emmet_ls = {
     }
 }
 
-local prisma_lsp_command = isWindows() and "prisma-language-server.cmd" or "prisma-language-server"
-
-configs.prisma_ls = {
-    default_config = {
-        cmd = {prisma_lsp_command, "--stdio"},
-        filetypes = {"prisma"},
-        root_dir = function(fname)
-            return require'lspconfig'.util.find_git_ancestor(fname) or vim.loop.os_homedir()
-        end,
-        settings = {prisma = {prismaFmtBinPath = ""}}
-    }
-}
+require'lspconfig'.prismals.setup {on_attach = require'lsp'.common_on_attach}
 
 nvim_lsp.emmet_ls.setup {on_attach = require'lsp'.common_on_attach}
 
-nvim_lsp.prisma_ls.setup {on_attach = require'lsp'.common_on_attach}
 -- npm install -g vscode-css-languageserver-bin
 require'lspconfig'.cssls.setup {on_attach = require'lsp'.common_on_attach}
 local bash_bin_name = isWindows() and "bash-language-server.cmd" or "bash-language-server";
