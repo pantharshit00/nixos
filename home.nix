@@ -24,7 +24,9 @@ rec {
     direnv = {
       enable = true;
       enableFishIntegration = true;
-      enableNixDirenvIntegration = true;
+      nix-direnv ={
+        enable = true;
+      };
     };
     neovim = { vimAlias = true; };
     git = {

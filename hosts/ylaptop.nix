@@ -9,7 +9,6 @@
       inputs.nixos-hardware.nixosModules.common-cpu-intel
       (modulesPath + "/installer/scan/not-detected.nix")
       ../modules/common.nix
-      ../modules/virtualization.nix
       ../modules/fonts.nix
       ../modules/dev.nix
       ../modules/multimedia.nix

@@ -67,6 +67,7 @@
 
     kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = [ "zfs" ];
+    zfs.enableUnstable = true;
 
     kernelModules = [ "tcp_bbr" ];
 
