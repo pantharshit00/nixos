@@ -18,8 +18,7 @@ in {
       git
       gdb
       perl
-      clang
-      clangStdenv
+      gcc
       binutils
       zlib
       shellcheck
