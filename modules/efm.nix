@@ -2,7 +2,7 @@
 
 pkgs.buildGoModule rec {
   name = "efm-langserver";
-  version = "0.0.30";
+  version = "0.0.31";
   src = pkgs.fetchFromGitHub {
     owner = "mattn";
     repo = "efm-langserver";
