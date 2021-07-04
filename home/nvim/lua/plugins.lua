@@ -43,6 +43,9 @@ return require('packer').startup(function()
             }
         end
     }
+    use {
+        "ray-x/lsp_signature.nvim"
+    }
 
     -- Autcomplete
     use 'hrsh7th/nvim-compe' -- Autocompletion

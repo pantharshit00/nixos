@@ -8,11 +8,36 @@
 -- require'completion'.on_attach(client)
 -- require'illuminate'.on_attach(client)
 -- end
+--
+local on_attach = function(client)
+
+    -- Set autocommands conditional on server_capabilities
+    if client.resolved_capabilities.document_highlight then
+        -- Set up cursor hold highlight if language server supports it
+        vim.api.nvim_exec([[
+      hi LspReferenceRead cterm=bold ctermbg=red guibg=#393e48
+      hi LspReferenceText cterm=bold ctermbg=red guibg=#393e48
+      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#393e48
+      augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]], false)
+    end
+    require"lsp_signature".on_attach()
+end
+
 require'lspconfig'.tsserver.setup {
     on_attach = function(client)
-        if client.config.flags then client.config.flags.allow_incremental_sync = true end
+        on_attach(client)
+        client.config.flags.allow_incremental_sync = true
         client.resolved_capabilities.document_formatting = false
-    end
+    end,
+    handlers = {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+                                                           {virtual_text = false, underline = true})
+    }
 }
 
 local function isWindows()
@@ -22,43 +47,24 @@ end
 local lua_bin = isWindows() and 'lua-language-server-bin.cmd' or 'lua-language-server-bin'
 
 -- lua
-require'lspconfig'.sumneko_lua.setup {cmd = {lua_bin}}
+require'lspconfig'.sumneko_lua.setup {cmd = {lua_bin}, on_attach = on_attach}
 
 -- npm install -g vscode-html-languageserver-bin
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-require'lspconfig'.html.setup {on_attach = require'lsp'.common_on_attach, capabilities = capabilities}
+require'lspconfig'.html.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- npm install -g vscode-json-languageserver
 local jsonServerCmd = isWindows() and 'vscode-json-languageserver.cmd' or 'vscode-json-languageserver'
-require'lspconfig'.jsonls.setup {cmd = {jsonServerCmd, "--stdio"}, on_attach = require'lsp'.common_on_attach}
+require'lspconfig'.jsonls.setup {cmd = {jsonServerCmd, "--stdio"}, on_attach = on_attach}
 
 -- npm install -g graphql-language-service-cli
-require'lspconfig'.graphql.setup {on_attach = require'lsp'.common_on_attach}
+require'lspconfig'.graphql.setup {on_attach = on_attach}
 
--- emmet
-local nvim_lsp = require 'lspconfig'
-local configs = require 'lspconfig/configs'
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-local emmet_ls_cmd = isWindows() and "emmet-ls.cmd" or "emmet-ls"
-configs.emmet_ls = {
-    default_config = {
-        cmd = {emmet_ls_cmd, '--stdio'},
-        filetypes = {
-            'html', 'css', "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
-            "typescript.tsx"
-        },
-        root_dir = require'lspconfig'.util.root_pattern('package.json'),
-        settings = {}
-    }
-}
 
 require'lspconfig'.prismals.setup {on_attach = require'lsp'.common_on_attach}
 
-nvim_lsp.emmet_ls.setup {on_attach = require'lsp'.common_on_attach}
 
 -- npm install -g vscode-css-languageserver-bin
 require'lspconfig'.cssls.setup {on_attach = require'lsp'.common_on_attach}
