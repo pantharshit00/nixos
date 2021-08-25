@@ -93,13 +93,13 @@ return require('packer').startup(function()
     use 'voldikss/vim-floaterm'
     use 'b3nj5m1n/kommentary'
     use {'simrat39/symbols-outline.nvim', cmd = {'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose'}}
-    use 'bfredl/nvim-miniyank'
     use 'andymass/vim-matchup' -- Better %
     use 'wakatime/vim-wakatime'
 
     use 'mbbill/undotree' -- Undotree to undo stuff well
     use 'moll/vim-bbye' -- Better Tab Closing; Incompat. with Barbar
     use 'windwp/nvim-autopairs'
+    use 'rmagatti/auto-session'
 
     -- Tool Specific
     use 'pantharshit00/vim-prisma'
