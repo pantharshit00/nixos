@@ -15,7 +15,6 @@ return require('packer').startup(function()
     -- Appearence
     use 'challenger-deep-theme/vim' -- Challenger deep theme
     use 'haishanh/night-owl.vim' -- night-owl Theme
-    -- TODO: Change from this fork to main repo when fixes are merged
     use 'kyazdani42/nvim-tree.lua'
     use {'hoob3rt/lualine.nvim'}
 
@@ -27,7 +26,10 @@ return require('packer').startup(function()
 
     -- LSP
     use 'neovim/nvim-lspconfig' -- Language Server Protocol Config
-    use 'glepnir/lspsaga.nvim'
+    -- TODO: replace after https://github.com/glepnir/lspsaga.nvim/issues/241 is fixed 
+    -- use 'glepnir/lspsaga.nvim'
+    use 'rinx/lspsaga.nvim'
+
     use 'onsails/lspkind-nvim' -- Better icons for autcomplete
     -- use 'kosayoda/nvim-lightbulb'
     -- use 'anott03/nvim-lspinstall'
@@ -48,10 +50,8 @@ return require('packer').startup(function()
     }
 
     -- Autcomplete
+      
     use 'hrsh7th/nvim-compe' -- Autocompletion
-    use 'mattn/emmet-vim'
-    use 'dsznajder/vscode-es7-javascript-react-snippets'
-    use 'rust-lang/vscode-rust'
     -- use 'cohama/lexima.vim'
 
     -- Telescope
@@ -65,18 +65,8 @@ return require('packer').startup(function()
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'nvim-treesitter/playground'
 
-    -- Snippets
     use 'hrsh7th/vim-vsnip' -- Snipper Integration for Neovim
     use 'hrsh7th/vim-vsnip-integ'
-
-    -- General
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            require("which-key").setup {}
-        end
-    }
-
     use 'tpope/vim-surround'
 
     -- Git
@@ -86,11 +76,12 @@ return require('packer').startup(function()
             require('gitsigns').setup()
         end
     }
+ 
+    use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
     -- find and replace example
     use 'kevinhwang91/nvim-bqf'
     use 'airblade/vim-rooter'
-    use 'voldikss/vim-floaterm'
     use 'b3nj5m1n/kommentary'
     use {'simrat39/symbols-outline.nvim', cmd = {'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose'}}
     use 'andymass/vim-matchup' -- Better %
