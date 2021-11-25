@@ -35,4 +35,6 @@ vim.cmd("filetype plugin on") -- Auto Indentation Levels
 vim.cmd("filetype indent on") -- Auto Indentation Levels
 vim.cmd("set fileformat=unix")
 vim.g.material_style = "palenight"
+vim.g.did_load_filetypes = 1
+
 

@@ -8,7 +8,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute 'packadd packer.nvim'
 end
 
-vim.g.did_load_filetypes = false
 
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
