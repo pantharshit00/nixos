@@ -7,6 +7,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
     execute 'packadd packer.nvim'
 end
+
+vim.g.did_load_filetypes = false
+
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 return require('packer').startup(function()
@@ -16,6 +19,13 @@ return require('packer').startup(function()
     use 'challenger-deep-theme/vim' -- Challenger deep theme
     use 'haishanh/night-owl.vim' -- night-owl Theme
     use 'kyazdani42/nvim-tree.lua'
+      
+    use {
+        "nathom/filetype.nvim",
+        config = function()
+            require("filetype").setup({})
+        end,
+    }
     use {'hoob3rt/lualine.nvim'}
 
     use 'kyazdani42/nvim-web-devicons' -- Devicons for Plugins
