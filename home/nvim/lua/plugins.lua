@@ -19,12 +19,6 @@ return require('packer').startup(function()
     use 'haishanh/night-owl.vim' -- night-owl Theme
     use 'kyazdani42/nvim-tree.lua'
       
-    use {
-        "nathom/filetype.nvim",
-        config = function()
-            require("filetype").setup({})
-        end,
-    }
     use {'hoob3rt/lualine.nvim'}
 
     use 'kyazdani42/nvim-web-devicons' -- Devicons for Plugins
