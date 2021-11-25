@@ -60,7 +60,7 @@ exprinoremap('<C-f>', "compe#scroll({ 'delta': +4 })")
 exprinoremap('<C-d>', "compe#scroll({ 'delta': -4 })")
 
 -- Map Leader Key to <Space>
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 ---== LSP Saga ==---
 nnoremap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')

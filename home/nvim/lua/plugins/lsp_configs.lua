@@ -9,6 +9,8 @@
 -- require'illuminate'.on_attach(client)
 -- end
 --
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 local on_attach = function(client)
 
     -- Set autocommands conditional on server_capabilities
@@ -34,6 +36,7 @@ require'lspconfig'.tsserver.setup {
         client.config.flags.allow_incremental_sync = true
         client.resolved_capabilities.document_formatting = false
     end,
+    capabilities = capabilities,
     handlers = {
         ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
                                                            {virtual_text = false, underline = true})
@@ -47,32 +50,33 @@ end
 local lua_bin = isWindows() and 'lua-language-server-bin.cmd' or 'lua-language-server-bin'
 
 -- lua
-require'lspconfig'.sumneko_lua.setup {cmd = {lua_bin}, on_attach = on_attach}
+require'lspconfig'.sumneko_lua.setup {cmd = {lua_bin}, on_attach = on_attach, capabilities = capabilities }
 
 -- npm install -g vscode-html-languageserver-bin
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 require'lspconfig'.html.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- npm install -g vscode-json-languageserver
 local jsonServerCmd = isWindows() and 'vscode-json-languageserver.cmd' or 'vscode-json-languageserver'
-require'lspconfig'.jsonls.setup {cmd = {jsonServerCmd, "--stdio"}, on_attach = on_attach}
+require'lspconfig'.jsonls.setup {cmd = {jsonServerCmd, "--stdio"}, on_attach = on_attach, capabilities = capabilities}
 
 -- npm install -g graphql-language-service-cli
-require'lspconfig'.graphql.setup {on_attach = on_attach}
+require'lspconfig'.graphql.setup {on_attach = on_attach, capabilities = capabilities}
 
 
-require'lspconfig'.prismals.setup {on_attach = require'lsp'.common_on_attach}
+require'lspconfig'.prismals.setup {on_attach = on_attach, capabilities = capabilities}
 
 
 -- npm install -g vscode-css-languageserver-bin
-require'lspconfig'.cssls.setup {on_attach = require'lsp'.common_on_attach}
+require'lspconfig'.cssls.setup {on_attach = on_attach, capabilities = capabilities}
 local bash_bin_name = isWindows() and "bash-language-server.cmd" or "bash-language-server";
 -- npm i -g bash-language-server
-require'lspconfig'.bashls.setup {cmd = {bash_bin_name, "start"}, on_attach = require'lsp'.common_on_attach}
+require'lspconfig'.bashls.setup {cmd = {bash_bin_name, "start"}, on_attach = on_attach, capabilities = capabilities }
 
-require('rust-tools').setup {}
+require('rust-tools').setup {
+  server = {
+    capabilities = capabilities
+  }
+}
 
 -- autoformat
 vim.cmd [[autocmd BufWritePre *.ts,*.css,*.html,*.ts,*.tsx,*.js,*.jsx,*.json,*.rs,*.html,*.graphql,*.prisma,*.c,*.md lua vim.lsp.buf.formatting_sync(nil, 500)]]

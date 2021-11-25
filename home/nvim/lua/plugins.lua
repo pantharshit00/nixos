@@ -44,6 +44,7 @@ return require('packer').startup(function()
     -- use 'kosayoda/nvim-lightbulb'
     -- use 'anott03/nvim-lspinstall'
     use 'folke/tokyonight.nvim'
+    use 'marko-cerovac/material.nvim'
 
     use {
         "folke/trouble.nvim",
@@ -60,8 +61,12 @@ return require('packer').startup(function()
     }
 
     -- Autcomplete
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
       
-    use 'hrsh7th/nvim-compe' -- Autocompletion
     -- use 'cohama/lexima.vim'
 
     -- Telescope
