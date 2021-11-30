@@ -47,7 +47,7 @@ local function isWindows()
     return package.config:sub(1, 1) == '\\'
 end
 
-local lua_bin = isWindows() and 'lua-language-server-bin.cmd' or 'lua-language-server-bin'
+local lua_bin = isWindows() and 'lua-language-server.exe' or 'lua-language-server-bin'
 
 -- lua
 require'lspconfig'.sumneko_lua.setup {cmd = {lua_bin}, on_attach = on_attach, capabilities = capabilities }
