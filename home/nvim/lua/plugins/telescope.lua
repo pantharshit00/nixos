@@ -1,85 +1,68 @@
---[[
-  Taken from https://github.com/yashguptaz/dotfiles/blob/master/config/nvim/lua/plugins/telescope/init.lua]]
-local actions = require('telescope.actions')
--- Global remapping
-------------------------------
--- '--color=never',
+local telescope = require("telescope")
+local actions = require("telescope.actions")
 
-require('telescope').load_extension('media_files')
-require('telescope').setup {
-    defaults = {
-        vimgrep_arguments = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
-       
-        prompt_prefix = " ",
-        selection_caret = " ",
-        entry_prefix = "  ",
-        initial_mode = "insert",
-        selection_strategy = "reset",
-        sorting_strategy = "descending",
-        layout_strategy = "horizontal",
-        file_sorter = require'telescope.sorters'.get_fuzzy_file,
-        file_ignore_patterns = {},
-        generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
-        winblend = 0,
-        layout_condfig = {
-            width = 0.75,
-            prompt_position = "bottom",
-            preview_cutoff = 70,
-            horizontal = {mirror = false}, vertical = {mirror = false}
-        },
-       
-        border = {},
-        borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
-        color_devicons = true,
-        use_less = true,
-        set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
-        file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-        grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-        qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+local u = require("utils")
 
-        -- Developer configurations: Not meant for general override
-        buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
-        mappings = {
-            i = {
-                ["<C-j>"] = actions.move_selection_next,
-                ["<C-k>"] = actions.move_selection_previous,
-                ["<C-q>"] = actions.send_to_qflist,
-                -- To disable a keymap, put [map] = false
-                -- So, to not map "<C-n>", just put
-                -- ["<c-x>"] = false,
-
-                -- Otherwise, just set the mapping to the function that you want it to be.
-                -- ["<C-i>"] = actions.select_horizontal,
-
-                -- Add up multiple actions
-                ["<CR>"] = actions.select_default + actions.center
-
-                -- You can perform as many actions in a row as you like
-                -- ["<CR>"] = actions.select_default + actions.center + my_cool_custom_action,
-            },
-            n = {
-                ["<C-j>"] = actions.move_selection_next,
-                ["<C-k>"] = actions.move_selection_previous
-                -- ["<esc>"] = actions.close,
-                -- ["<C-i>"] = my_cool_custom_action,
-            }
+telescope.setup({
+    extensions = {
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true
         }
     },
-    require'telescope'.setup {
-        extensions = {
-            media_files = {
-                -- filetypes whitelist
-                -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-                filetypes = {"png", "webp", "jpg", "jpeg"},
-                find_cmd = "rg" -- find command (defaults to `fd`)
+    defaults = {
+        vimgrep_arguments = {
+            "rg", "--color=never", "--no-heading", "--with-filename",
+            "--line-number", "--column", "--smart-case", "--ignore", "--hidden",
+            "-g", "!.git"
+        },
+        mappings = {
+            i = {
+                ["<C-u>"] = false,
+                ["<Esc>"] = actions.close,
+                ["<M-u>"] = actions.preview_scrolling_up,
+                ["<M-d>"] = actions.preview_scrolling_down
             }
         }
     }
+})
+
+telescope.load_extension("fzf")
+telescope.load_extension("projects")
+
+global.telescope = {
+    -- try git_files and fall back to find_files
+    find_files = function()
+        local set = require("telescope.actions.set")
+        local builtin = require("telescope.builtin")
+
+        local is_git_project = pcall(builtin.git_files, opts)
+        if not is_git_project then builtin.find_files(opts) end
+    end
 }
 
-local M = {}
-M.search_dotfiles = function()
-    require("telescope.builtin").find_files({prompt_title = "< VimRC >", cwd = "~/code/nixos/home/nvim"})
-end
+u.lua_command("Files", "global.telescope.find_files()")
+u.command("Rg", "Telescope live_grep")
+u.command("BLines", "Telescope current_buffer_fuzzy_find")
+u.command("History", "Telescope oldfiles")
+u.command("Buffers", "Telescope buffers")
+u.command("BCommits", "Telescope git_bcommits")
+u.command("Commits", "Telescope git_commits")
+u.command("HelpTags", "Telescope help_tags")
+u.command("ManPages", "Telescope man_pages")
 
-return M
+u.nmap("<C-p>", "<cmd>Files<CR>")
+u.nmap("<LocalLeader><LocalLeader>", "<cmd>Rg<CR>")
+u.nmap("<Leader>fo", "<cmd>History<CR>")
+u.nmap("<Leader>fh", "<cmd>HelpTags<CR>")
+u.nmap("<Leader>fl", "<cmd>BLines<CR>")
+u.nmap("<Leader>fc", "<cmd>BCommits<CR>")
+u.nmap("<Leader>b", "<cmd>Buffers<CR>")
+
+-- lsp
+u.command("LspRef", "Telescope lsp_references")
+u.command("LspDef", "Telescope lsp_definitions")
+u.command("LspSym", "Telescope lsp_workspace_symbols")
+u.command("LspAct", "Telescope lsp_code_actions")
+u.command("LspRangeAct", "Telescope lsp_range_code_actions")

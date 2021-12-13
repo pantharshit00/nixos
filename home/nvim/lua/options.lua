@@ -1,3 +1,5 @@
+global = {}
+
 vim.wo.number = true -- set numbered lines
 vim.cmd('set relativenumber') -- Relative Line Numbers
 vim.wo.number = true -- set numbered lines
@@ -11,8 +13,6 @@ vim.cmd('set incsearch') -- Incremental Search: Search as you type
 vim.cmd('set nohlsearch') -- No Highlight Search 
 vim.o.hidden = true -- Required to keep multiple buffers open 
 vim.wo.wrap = true -- Display long lines as multiple 
-vim.o.pumheight = 10 -- Makes popup menu smaller
-vim.o.scrolloff = 8 -- Scroll Offset of 8 lines
 vim.o.fileencoding = "utf-8" -- The encoding written to file
 vim.o.cmdheight = 2 -- More space for displaying messages
 vim.o.mouse = "a" -- Enable your mouse
@@ -28,12 +28,10 @@ vim.wo.cursorline = true -- Enable highlighting of the current line
 vim.o.showtabline = 2 -- Always show tabs
 vim.wo.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.o.updatetime = 300 -- Faster completion
-vim.o.timeoutlen = 800 -- By default timeoutlen is 1000 ms
-vim.cmd('set colorcolumn=99999') -- Fix Vim Indentline 
-
 vim.cmd("filetype plugin on") -- Auto Indentation Levels 
 vim.cmd("filetype indent on") -- Auto Indentation Levels
 vim.cmd("set fileformat=unix")
-vim.g.material_style = "palenight"
-
-
+vim.g.coq_settings = {
+    ["auto_start"] = 'shut-up',
+    ["limits.completion_auto_timeout"] = 200
+}

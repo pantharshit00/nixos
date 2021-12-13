@@ -1,19 +1,9 @@
---[[
-  Config structure taken from https://github.com/yashguptaz/dotfiles
-  when switching from vim to lua based configuration.
-  Ported to own style.]] 
 require('options')
-require('plugins')
-require('appearance')
-require('lsp')
 require('keymaps')
-
-require('plugins/default')
+require('appearance')
 require('plugins')
-require('plugins/lsp_configs')
-require('plugins/efm-general-ls')
 require('plugins/telescope')
-require('plugins/compe')
-require('plugins/nvimtree')
-require('plugins/autopairs')
+require('plugins/lsp')
 require('plugins/lualine')
+require('plugins/autopairs')
+require('plugins/common')
