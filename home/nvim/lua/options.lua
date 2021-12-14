@@ -33,5 +33,7 @@ vim.cmd("filetype indent on") -- Auto Indentation Levels
 vim.cmd("set fileformat=unix")
 vim.g.coq_settings = {
     ["auto_start"] = 'shut-up',
-    ["limits.completion_auto_timeout"] = 200
+    ["limits.completion_auto_timeout"] = 200,
+    ["keymap.jump_to_mark"] = '<C-n>',
+    ["keymap.recommended"] = false
 }

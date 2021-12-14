@@ -9,8 +9,6 @@ npairs.setup({
     }
 })
 
-vim.g.coq_settings = {keymap = {recommended = false}}
-
 -- these mappings are coq recommended mappings unrelated to nvim-autopairs
 remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]],
       {expr = true, noremap = true})

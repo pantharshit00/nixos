@@ -11,6 +11,7 @@ u.nmap('<leader>qk', ':cprevious<CR>')
 u.nmap('<leader>p', ':lua vim.lsp.buf.formatting()<CR>')
 
 -- Better Window Movement
+
 u.nmap('<C-h>', ':wincmd h<CR>')
 u.nmap('<C-j>', ':wincmd j<CR>')
 u.nmap('<C-k>', ':wincmd k<CR>')
