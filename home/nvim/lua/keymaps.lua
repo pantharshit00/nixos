@@ -24,3 +24,6 @@ u.vmap('>', '>gv')
 u.imap('jk', '<Esc>', {noremap = false, silent = false})
 
 u.nmap('<leader>xx', ':TroubleToggle<CR>')
+
+u.nmap('<C-_>', '<Plug>kommentary_line_default', { noremap = false, silent = false})
+u.vmap('<C-_>', '<Plug>kommentary_visual_default',{ noremap = false, silent = false} )
