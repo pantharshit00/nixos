@@ -18,6 +18,7 @@ return require('packer').startup(function()
 
     use 'nathom/filetype.nvim' -- faster file loading
     use 'folke/tokyonight.nvim' -- best theme for nvim
+    use 'Mofiqul/dracula.nvim' -- another good theme
     use 'folke/trouble.nvim' -- better diagnostic menu
     use 'ray-x/lsp_signature.nvim' -- lsp signatures as you type
 
@@ -69,6 +70,5 @@ return require('packer').startup(function()
     }
 
     -- Tool Specific
-    use 'pantharshit00/vim-prisma'
     use 'simrat39/rust-tools.nvim'
 end)

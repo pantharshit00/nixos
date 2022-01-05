@@ -27,6 +27,6 @@ require('kommentary.config').configure_language('typescriptreact', {
     end
 })
 
-require"lsp_signature".setup()
+-- require"lsp_signature".setup()
 
 require("project_nvim").setup()

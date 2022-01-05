@@ -14,7 +14,7 @@ lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border_opts)
 
 -- use lsp formatting if it's available (and if it's good)
 -- otherwise, fall back to null-ls
-local preferred_formatting_clients = {"denols", "eslint", "rust_analyzer"}
+local preferred_formatting_clients = {"denols", "eslint", "rust_analyzer","prismals" }
 local fallback_formatting_client = "null-ls"
 
 local formatting = function()
@@ -86,7 +86,7 @@ local on_attach = function(client, bufnr)
     require("illuminate").on_attach(client)
 end
 
-for _, server in ipairs({"eslint", "null-ls", "tsserver", "rustls"}) do
+for _, server in ipairs({"null-ls", "tsserver", "rustls", "prismals"}) do
     require("plugins.lsp." .. server).setup(on_attach)
 end
 
