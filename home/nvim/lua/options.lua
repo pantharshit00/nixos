@@ -36,5 +36,4 @@ vim.g.coq_settings = {
     ["display.pum.fast_close"] = false,
     ["keymap.jump_to_mark"] = '<C-n>',
     ["keymap.recommended"] = false,
-    ["keymap.pre_select"] = true,
 }
